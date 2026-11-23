@@ -1,0 +1,1249 @@
+/*--------------------------------------------------------------
+# Kabankalan Catholic College, Inc. (KCC) — Modern Royal Blue Theme
+# Clean, bright institutional theme layered over Bootstrap 5
+--------------------------------------------------------------*/
+:root {
+  --kcc-blue: #1654d3;
+  --kcc-blue-hover: #1042ab;
+  --kcc-blue-soft: #e9f1ff;
+  --kcc-blue-tint: #f4f8ff;
+  --kcc-navy: #0f2447;
+  --kcc-navy-deep: #0b2758;
+  --kcc-navy-darker: #071d44;
+  --kcc-banner-blue: #0e418a;
+  --kcc-text: #384961;
+  --kcc-muted: #5a6c85;
+  --kcc-border: #dfe8f5;
+  --kcc-white: #ffffff;
+
+  --font-display: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.kcc-home {
+  font-family: var(--font-body);
+  color: var(--kcc-text);
+  background-color: var(--kcc-white);
+  margin: 0;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/*--------------------------------------------------------------
+# Header / Navbar
+--------------------------------------------------------------*/
+.kcc-header {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(15, 36, 71, 0.08);
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 997;
+  transition: box-shadow 0.25s ease, padding 0.25s ease;
+}
+
+.scrolled .kcc-header {
+  box-shadow: 0 8px 28px rgba(15, 36, 71, 0.08);
+  padding: 10px 0;
+}
+
+.kcc-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--kcc-navy);
+}
+
+.kcc-brand img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.kcc-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.kcc-brand-title {
+  font-family: var(--font-serif);
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--kcc-navy);
+  margin: 0;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.kcc-brand-tagline {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.085em;
+  text-transform: uppercase;
+  color: var(--kcc-muted);
+  margin-top: 3px;
+  white-space: nowrap;
+}
+
+/* Navigation */
+.kcc-nav {
+  display: flex;
+  align-items: center;
+}
+
+.kcc-nav > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.kcc-nav li {
+  position: relative;
+}
+
+.kcc-nav > ul > li > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 11px;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--kcc-navy);
+  position: relative;
+  white-space: nowrap;
+}
+
+.kcc-nav > ul > li > a::after {
+  content: "";
+  position: absolute;
+  left: 11px;
+  right: 11px;
+  bottom: 2px;
+  height: 2.5px;
+  border-radius: 2px;
+  background: var(--kcc-blue);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s ease;
+}
+
+.kcc-nav > ul > li > a:hover,
+.kcc-nav > ul > li > a.active {
+  color: var(--kcc-blue);
+}
+
+.kcc-nav > ul > li > a.active::after,
+.kcc-nav > ul > li > a:hover::after {
+  transform: scaleX(1);
+}
+
+.kcc-nav .dropdown > a i {
+  font-size: 0.72rem;
+  transition: transform 0.2s ease;
+}
+
+.kcc-nav .dropdown:hover > a i {
+  transform: rotate(180deg);
+}
+
+.kcc-nav .dropdown ul {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 220px;
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+  background: var(--kcc-white);
+  border: 1px solid var(--kcc-border);
+  border-radius: 12px;
+  box-shadow: 0 14px 34px rgba(15, 36, 71, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 99;
+}
+
+.kcc-nav .dropdown:hover > ul {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.kcc-nav .dropdown ul a {
+  display: block;
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--kcc-navy);
+}
+
+.kcc-nav .dropdown ul a:hover {
+  background: var(--kcc-blue-tint);
+  color: var(--kcc-blue);
+}
+
+/* Header Enroll Pill Button */
+.btn-enroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #1b63e4 0%, #1248b8 100%);
+  color: var(--kcc-white);
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 999px;
+  box-shadow: 0 6px 16px rgba(22, 84, 211, 0.28);
+  margin-left: 16px;
+  white-space: nowrap;
+}
+
+.btn-enroll:hover {
+  background: linear-gradient(135deg, #1454cc 0%, #0d3a99 100%);
+  color: var(--kcc-white);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(22, 84, 211, 0.34);
+}
+
+/* Mobile Nav Toggle */
+.kcc-mobile-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--kcc-border);
+  border-radius: 10px;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: var(--kcc-navy);
+  cursor: pointer;
+}
+
+@media (max-width: 1199px) {
+  .kcc-brand-tagline {
+    display: none;
+  }
+
+  .kcc-brand-title {
+    font-size: 0.96rem;
+    white-space: normal;
+    line-height: 1.2;
+  }
+
+  .kcc-brand {
+    min-width: 0;
+    flex: 1 1 auto;
+    padding-right: 8px;
+  }
+
+  .kcc-brand img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .kcc-mobile-toggle {
+    display: inline-flex;
+    margin-left: 10px;
+    flex-shrink: 0;
+  }
+
+  .kcc-nav > ul {
+    display: none;
+    position: fixed;
+    top: 72px;
+    left: 14px;
+    right: 14px;
+    max-height: calc(100vh - 90px);
+    overflow-y: auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    background: var(--kcc-white);
+    border: 1px solid var(--kcc-border);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 22px 50px rgba(15, 36, 71, 0.22);
+    z-index: 999;
+  }
+
+  body.mobile-nav-active .kcc-nav > ul {
+    display: flex;
+  }
+
+  body.mobile-nav-active::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(11, 39, 88, 0.42);
+    backdrop-filter: blur(2px);
+    z-index: 995;
+  }
+
+  .kcc-nav > ul > li > a {
+    padding: 12px 14px;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 0.96rem;
+    border-radius: 10px;
+  }
+
+  .kcc-nav > ul > li > a.active,
+  .kcc-nav > ul > li > a:hover {
+    background: var(--kcc-blue-tint);
+  }
+
+  .kcc-nav > ul > li > a::after {
+    display: none;
+  }
+
+  .kcc-nav .dropdown ul {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    background: var(--kcc-blue-tint);
+    margin: 4px 0 6px 8px;
+    display: none;
+  }
+
+  .kcc-nav .dropdown.dropdown-open > ul {
+    display: block;
+  }
+
+  .kcc-nav .dropdown.dropdown-open > a i {
+    transform: rotate(180deg);
+  }
+
+  .kcc-mobile-enroll-item {
+    display: block;
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 1px solid var(--kcc-border);
+  }
+
+  .kcc-mobile-enroll-item .btn-kcc-primary {
+    width: 100%;
+    padding: 12px 20px;
+  }
+
+  .btn-enroll {
+    padding: 8px 16px;
+    font-size: 0.82rem;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .kcc-mobile-enroll-item {
+    display: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .kcc-header {
+    padding: 10px 0;
+  }
+
+  .kcc-brand {
+    gap: 9px;
+  }
+
+  .kcc-brand img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .kcc-brand-title {
+    font-size: 0.9rem;
+  }
+
+  .kcc-header .btn-enroll {
+    display: none;
+  }
+
+  .kcc-nav > ul {
+    top: 64px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Buttons
+--------------------------------------------------------------*/
+.btn-kcc-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #1b63e4 0%, #1248b8 100%);
+  color: var(--kcc-white);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 13px 26px;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  box-shadow: 0 8px 20px rgba(22, 84, 211, 0.28);
+}
+
+.btn-kcc-primary:hover {
+  background: linear-gradient(135deg, #1553c9 0%, #0d3a99 100%);
+  color: var(--kcc-white);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(22, 84, 211, 0.36);
+}
+
+.btn-kcc-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--kcc-navy);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 13px 26px;
+  border-radius: 999px;
+  border: 1.5px solid #2b63c9;
+}
+
+.btn-kcc-outline i {
+  color: var(--kcc-blue);
+}
+
+.btn-kcc-outline:hover {
+  background: var(--kcc-blue-tint);
+  color: var(--kcc-blue);
+  border-color: var(--kcc-blue);
+  transform: translateY(-2px);
+}
+
+.btn-kcc-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--kcc-white);
+  color: var(--kcc-navy);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 13px 28px;
+  border-radius: 999px;
+  box-shadow: 0 10px 24px rgba(7, 29, 68, 0.22);
+}
+
+.btn-kcc-white i {
+  color: var(--kcc-blue);
+  transition: transform 0.2s ease;
+}
+
+.btn-kcc-white:hover {
+  background: #f3f7ff;
+  color: var(--kcc-blue);
+  transform: translateY(-2px);
+}
+
+.btn-kcc-white:hover i {
+  transform: translateX(3px);
+}
+
+/*--------------------------------------------------------------
+# 1. Hero Section
+--------------------------------------------------------------*/
+.kcc-hero-modern {
+  position: relative;
+  background-color: #f3f8ff;
+  background-image: url("../img/home/hero_background.png");
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  padding-top: 24px;
+}
+
+.kcc-hero-copy-col {
+  padding-top: 32px;
+  padding-bottom: 64px;
+}
+
+.kcc-hero-eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #364e73;
+  margin-bottom: 22px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.kcc-hero-eyebrow::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 56px;
+  height: 2px;
+  background: var(--kcc-blue);
+  border-radius: 2px;
+}
+
+.kcc-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.55rem, 5vw, 3.85rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--kcc-navy);
+  margin-bottom: 20px;
+}
+
+.kcc-hero-title .accent-word {
+  color: var(--kcc-blue);
+  font-style: italic;
+  font-weight: 800;
+}
+
+.kcc-hero-subtitle {
+  font-size: 1.06rem;
+  line-height: 1.65;
+  color: var(--kcc-text);
+  max-width: 470px;
+  margin-bottom: 32px;
+}
+
+.kcc-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+.kcc-hero-media-col {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.kcc-hero-model {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: bottom center;
+  /* Pure white studio background melts cleanly into the soft sky-blue hero backdrop */
+  mix-blend-mode: multiply;
+  margin-bottom: -2px;
+}
+
+@media (max-width: 991px) {
+  .kcc-hero-modern {
+    padding-top: 28px;
+    background-position: top right;
+  }
+
+  .kcc-hero-copy-col {
+    padding-top: 8px;
+    padding-bottom: 12px;
+    text-align: center;
+  }
+
+  .kcc-hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.11em;
+    margin-bottom: 16px;
+  }
+
+  .kcc-hero-eyebrow::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .kcc-hero-title {
+    font-size: clamp(2.15rem, 8vw, 3rem);
+    margin-bottom: 14px;
+  }
+
+  .kcc-hero-subtitle {
+    font-size: 0.98rem;
+    margin: 0 auto 24px;
+  }
+
+  .kcc-hero-actions {
+    justify-content: center;
+  }
+
+  .kcc-hero-media-col {
+    justify-content: center;
+  }
+
+  .kcc-hero-model {
+    max-width: 390px;
+  }
+}
+
+@media (max-width: 575px) {
+  .kcc-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .kcc-hero-actions .btn-kcc-primary,
+  .kcc-hero-actions .btn-kcc-outline {
+    width: 100%;
+    padding: 13px 20px;
+  }
+
+  .kcc-hero-model {
+    max-width: 320px;
+  }
+}
+
+/*--------------------------------------------------------------
+# 2. Four Pillars Strip
+--------------------------------------------------------------*/
+.kcc-pillars-strip {
+  background: var(--kcc-white);
+  border-top: 1px solid var(--kcc-border);
+  border-bottom: 1px solid var(--kcc-border);
+  padding: 28px 0;
+  position: relative;
+  z-index: 3;
+}
+
+.kcc-pillar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px 16px;
+  position: relative;
+}
+
+.kcc-pillar-icon {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--kcc-blue);
+  margin-bottom: 10px;
+}
+
+.kcc-pillar-icon svg {
+  width: 34px;
+  height: 34px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.kcc-pillar-title {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--kcc-navy);
+  margin: 0;
+}
+
+@media (min-width: 992px) {
+  .kcc-pillar-col:not(:last-child) .kcc-pillar-item::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 16%;
+    height: 68%;
+    width: 1px;
+    background: var(--kcc-border);
+  }
+}
+
+@media (max-width: 991px) {
+  .kcc-pillars-strip {
+    padding: 20px 0;
+  }
+
+  .kcc-pillar-item {
+    background: #f8fbff;
+    border: 1px solid var(--kcc-border);
+    border-radius: 14px;
+    padding: 16px 12px;
+    height: 100%;
+  }
+
+  .kcc-pillar-icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 8px;
+  }
+
+  .kcc-pillar-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .kcc-pillar-title {
+    font-size: 0.88rem;
+    line-height: 1.3;
+  }
+}
+
+/*--------------------------------------------------------------
+# 3. About KCC Banner
+--------------------------------------------------------------*/
+.kcc-about-banner {
+  position: relative;
+  background-color: var(--kcc-banner-blue);
+  background-image: url("../img/home/about_kcc.png");
+  background-size: cover;
+  background-position: left center;
+  background-repeat: no-repeat;
+  min-height: 450px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 72px 0;
+}
+
+.kcc-about-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(11, 56, 122, 0.04) 0%,
+    rgba(11, 56, 122, 0.12) 40%,
+    rgba(13, 62, 134, 0.84) 60%,
+    rgba(11, 53, 118, 0.96) 100%
+  );
+  z-index: 1;
+}
+
+.kcc-about-banner .container-xl {
+  position: relative;
+  z-index: 2;
+}
+
+.kcc-banner-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 14px;
+}
+
+.kcc-banner-eyebrow .line {
+  display: inline-block;
+  width: 52px;
+  height: 1.5px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.kcc-banner-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.6vw, 2.85rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--kcc-white);
+  margin-bottom: 18px;
+}
+
+.kcc-banner-text {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 28px;
+}
+
+@media (max-width: 991px) {
+  .kcc-about-banner {
+    min-height: 0;
+    padding: 52px 0;
+    background-position: 18% center;
+  }
+
+  .kcc-about-banner::before {
+    background: linear-gradient(
+      180deg,
+      rgba(11, 53, 118, 0.78) 0%,
+      rgba(11, 53, 118, 0.93) 100%
+    );
+  }
+
+  .kcc-banner-heading {
+    font-size: clamp(1.75rem, 6.5vw, 2.3rem);
+  }
+
+  .kcc-banner-text {
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 575px) {
+  .kcc-programs-section {
+    padding: 56px 0 64px;
+  }
+
+  .kcc-program-body {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .kcc-program-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .kcc-program-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .kcc-program-info h3 {
+    font-size: 1.05rem;
+  }
+
+  .kcc-program-info p {
+    font-size: 0.86rem;
+  }
+
+  .kcc-program-arrow {
+    width: 34px;
+    height: 34px;
+  }
+
+  .kcc-footer-top {
+    padding: 40px 0 32px;
+  }
+
+  .kcc-footer-brand img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .kcc-footer-brand-title {
+    font-size: 1.02rem;
+  }
+
+  .kcc-footer-bottom {
+    text-align: center;
+  }
+}
+
+/*--------------------------------------------------------------
+# 4. Our Academic Programs Section
+--------------------------------------------------------------*/
+.kcc-programs-section {
+  background: var(--kcc-white);
+  padding: 80px 0 88px;
+}
+
+.kcc-section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--kcc-blue);
+  margin-bottom: 10px;
+}
+
+.kcc-section-eyebrow::before,
+.kcc-section-eyebrow::after {
+  content: "";
+  width: 44px;
+  height: 1.5px;
+  background: #8ab0ef;
+}
+
+.kcc-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.7rem);
+  font-weight: 800;
+  color: var(--kcc-navy);
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.kcc-section-subtitle {
+  font-size: 1.04rem;
+  color: var(--kcc-muted);
+  margin-bottom: 0;
+}
+
+.kcc-program-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #f8fbff;
+  border: 1px solid var(--kcc-border);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 26px rgba(15, 36, 71, 0.06);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+  color: inherit;
+}
+
+.kcc-program-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(22, 84, 211, 0.13);
+  border-color: #b7cef5;
+}
+
+.kcc-program-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #dce8fa;
+}
+
+.kcc-program-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  transition: transform 0.45s ease;
+}
+
+.kcc-program-card:hover .kcc-program-media img {
+  transform: scale(1.05);
+}
+
+.kcc-program-body {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 20px 22px;
+  flex: 1;
+}
+
+.kcc-program-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--kcc-blue);
+  align-self: flex-start;
+  margin-top: 2px;
+}
+
+.kcc-program-icon svg {
+  width: 34px;
+  height: 34px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.kcc-program-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.kcc-program-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--kcc-navy);
+  margin: 0 0 6px;
+}
+
+.kcc-program-info p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--kcc-muted);
+  margin: 0;
+}
+
+.kcc-program-arrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--kcc-blue-soft);
+  color: var(--kcc-blue);
+  font-size: 1rem;
+  transition: background-color 0.22s ease, color 0.22s ease, transform 0.22s ease;
+}
+
+.kcc-program-card:hover .kcc-program-arrow {
+  background: var(--kcc-blue);
+  color: var(--kcc-white);
+  transform: translateX(3px);
+}
+
+/*--------------------------------------------------------------
+# 5. Apply for Admission Banner
+--------------------------------------------------------------*/
+.kcc-admission-banner {
+  position: relative;
+  background-color: var(--kcc-banner-blue);
+  background-image: url("../img/home/admission.png");
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+  min-height: 430px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 72px 0;
+}
+
+.kcc-admission-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(11, 53, 118, 0.96) 0%,
+    rgba(13, 62, 134, 0.86) 38%,
+    rgba(13, 62, 134, 0.14) 60%,
+    rgba(11, 56, 122, 0.02) 100%
+  );
+  z-index: 1;
+}
+
+.kcc-admission-banner .container-xl {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 991px) {
+  .kcc-admission-banner {
+    min-height: 360px;
+    padding: 56px 0;
+    background-position: 80% center;
+  }
+
+  .kcc-admission-banner::before {
+    background: linear-gradient(
+      180deg,
+      rgba(11, 53, 118, 0.92) 0%,
+      rgba(11, 53, 118, 0.74) 100%
+    );
+  }
+}
+
+/*--------------------------------------------------------------
+# 6. Footer
+--------------------------------------------------------------*/
+.kcc-footer-modern {
+  background: var(--kcc-navy-deep);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.kcc-footer-top {
+  padding: 52px 0 44px;
+}
+
+.kcc-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.kcc-footer-brand img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.kcc-footer-brand-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--kcc-white);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.kcc-footer-brand-tagline {
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 4px;
+}
+
+.kcc-footer-col h4 {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--kcc-white);
+  margin-bottom: 16px;
+}
+
+.kcc-footer-links,
+.kcc-footer-contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.kcc-footer-links a,
+.kcc-footer-contact a {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.9rem;
+}
+
+.kcc-footer-links a:hover,
+.kcc-footer-contact a:hover {
+  color: var(--kcc-white);
+  text-decoration: underline;
+}
+
+.kcc-footer-contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.kcc-footer-contact i {
+  color: #7eb0ff;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.kcc-social-list {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.kcc-social-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--kcc-white);
+  color: var(--kcc-navy-deep);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+}
+
+.kcc-social-btn:hover {
+  background: var(--kcc-blue);
+  color: var(--kcc-white);
+  transform: translateY(-2px);
+}
+
+@media (min-width: 992px) {
+  .kcc-footer-divider {
+    border-left: 1px solid rgba(255, 255, 255, 0.14);
+    padding-left: 28px;
+  }
+}
+
+.kcc-footer-bottom {
+  background: var(--kcc-navy-darker);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 18px 0;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.kcc-footer-bottom a {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.kcc-footer-bottom a:hover {
+  color: var(--kcc-white);
+}
+
+/* Scroll Top */
+.kcc-scroll-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--kcc-blue);
+  color: var(--kcc-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 0 8px 20px rgba(22, 84, 211, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+  z-index: 996;
+}
+
+.kcc-scroll-top.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.kcc-scroll-top:hover {
+  background: var(--kcc-blue-hover);
+  color: var(--kcc-white);
+  transform: translateY(-2px);
+}

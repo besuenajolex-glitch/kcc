@@ -6,562 +6,489 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Kabankalan Catholic College, Inc. | Catholic Education: Our Identity, Our Mission</title>
   <meta name="description" content="Founded in 1927, Kabankalan Catholic College, Inc. is a Christ-centered learning community committed to academic excellence, faith formation, and service in Kabankalan City, Negros Occidental.">
-  <meta name="theme-color" content="#1a237e">
+  <meta name="theme-color" content="#1654d3">
 
-  <!-- Favicons from kcc.edu.ph -->
+  <!-- Favicons -->
   <link href="https://kcc.edu.ph/favicon.ico" rel="icon">
   <link href="https://kcc.edu.ph/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:ital,wght@0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
-  <!-- Main & KCC CSS Files -->
-  <link href="assets/css/main.css" rel="stylesheet">
-  <link href="assets/css/kcc.css" rel="stylesheet">
+  <!-- KCC Modern Royal Blue Theme -->
+  <link href="assets/css/kcc-theme.css" rel="stylesheet">
 </head>
 
-<body class="index-page">
+<body class="kcc-home">
 
   <!-- Header -->
-  <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+  <header id="header" class="kcc-header">
+    <div class="container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <img src="https://kcc.edu.ph/.netlify/images?w=44&q=80&url=%2Fimages%2Fkcc-logo.png" alt="Kabankalan Catholic College Seal" width="44" height="44">
-        <div class="brand-text">
-          <h1 class="sitename">Kabankalan Catholic College, Inc.</h1>
-          <span class="tagline">Catholic Education: Our Identity, Our Mission</span>
+      <a href="index.html" class="kcc-brand">
+        <img src="https://kcc.edu.ph/.netlify/images?w=96&q=85&url=%2Fimages%2Fkcc-logo.png" alt="Kabankalan Catholic College Seal" width="46" height="46">
+        <div class="kcc-brand-text">
+          <span class="kcc-brand-title">Kabankalan Catholic College, Inc.</span>
+          <span class="kcc-brand-tagline">Catholic Education: Our Identity, Our Mission.</span>
         </div>
       </a>
 
-      <nav id="navmenu" class="navmenu">
+      <nav id="navmenu" class="kcc-nav ms-auto" aria-label="Main Navigation">
         <ul>
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li class="dropdown">
-            <a href="programs.html"><span>Academics</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <a href="programs.html" class="dropdown-trigger">
+              <span>Academics</span>
+              <i class="bi bi-chevron-down"></i>
+            </a>
             <ul>
-              <li><a href="programs.html">College Programs</a></li>
-              <li><a href="senior-high.html">Senior High School</a></li>
               <li><a href="basic-education.html">Basic Education</a></li>
+              <li><a href="senior-high.html">Senior High School</a></li>
+              <li><a href="programs.html">College Programs</a></li>
             </ul>
           </li>
-          <li><a href="news.html">News</a></li>
           <li><a href="admissions.html">Admissions</a></li>
           <li><a href="campus-life.html">Campus Life</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="https://kcc.wela.ph/" target="_blank" rel="noopener noreferrer">Enroll Now</a>
+      <a class="btn-enroll" href="https://kcc.wela.ph/" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-mortarboard-fill"></i>
+        <span>Enroll Now</span>
+      </a>
+
+      <button type="button" class="kcc-mobile-toggle" id="mobileNavToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="bi bi-list"></i>
+      </button>
 
     </div>
   </header><!-- End Header -->
 
-  <main class="main">
+  <main>
 
     <!-- 1. Hero Section -->
-    <section id="home" class="kcc-hero">
-      <div class="container" data-aos="fade-up">
-        <div class="kcc-hero-badge">
-          <span class="dot"></span>
-          <span>Est. 1927 — Kabankalan City, Negros Occidental</span>
-        </div>
+    <section id="home" class="kcc-hero-modern">
+      <div class="container-xl">
+        <div class="row align-items-end g-4">
 
-        <div>
-          <img
-            src="https://kcc.edu.ph/.netlify/images?w=128&q=75&url=%2Fimages%2Fkcc-logo.png"
-            alt="Kabankalan Catholic College, Inc. Official Seal"
-            class="kcc-hero-seal"
-            width="128"
-            height="128"
-          >
-        </div>
+          <div class="col-lg-6 kcc-hero-copy-col" data-aos="fade-up">
+            <div class="kcc-hero-eyebrow">
+              Est. 1927 &nbsp;&bull;&nbsp; Kabankalan City, Negros Occidental
+            </div>
 
-        <div class="kcc-ornament">
-          <span class="line"></span>
-          <span class="diamond"></span>
-          <span class="line"></span>
-        </div>
+            <h1 class="kcc-hero-title">
+              Where Faith<br>
+              Meets <span class="accent-word">Excellence</span>
+            </h1>
 
-        <h1>Kabankalan Catholic College, Inc.</h1>
-        <p class="kcc-hero-tagline">Catholic Education: Our Identity, Our Mission</p>
+            <p class="kcc-hero-subtitle">
+              A Christ-centered learning community committed to academic excellence, faith formation, and service since 1927.
+            </p>
 
-        <div class="kcc-ornament">
-          <span class="line"></span>
-          <span class="diamond"></span>
-          <span class="line"></span>
-        </div>
+            <div class="kcc-hero-actions">
+              <a href="https://kcc.wela.ph/" target="_blank" rel="noopener noreferrer" class="btn-kcc-primary">
+                <i class="bi bi-mortarboard-fill"></i>
+                <span>Apply for Admission</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+              <a href="#programs" class="btn-kcc-outline">
+                <i class="bi bi-grid-fill"></i>
+                <span>Explore Programs</span>
+              </a>
+            </div>
+          </div>
 
-        <p class="kcc-hero-motto">&ldquo;Teach Ye All Nations&rdquo; &mdash; Matthew 28:19</p>
-        <p class="kcc-hero-copy">
-          A Christ-centered learning community committed to academic excellence, faith formation, and service since 1927.
-        </p>
+          <div class="col-lg-6 kcc-hero-media-col">
+            <img
+              src="assets/img/home/hero_model.png"
+              alt="Kabankalan Catholic College Students"
+              class="kcc-hero-model"
+              width="1405"
+              height="1119"
+            >
+          </div>
 
-        <div class="d-flex flex-wrap justify-content-center gap-3">
-          <a href="https://kcc.wela.ph/" target="_blank" rel="noopener noreferrer" class="btn-kcc-gold">
-            <span>Apply for Admission</span>
-            <i class="bi bi-arrow-right"></i>
-          </a>
-          <a href="#programs" class="btn-kcc-outline-light">
-            <span>Explore Programs</span>
-          </a>
-        </div>
-
-        <div>
-          <a href="#about" class="kcc-scroll-cue" aria-label="Scroll to About section">
-            <span>Scroll</span>
-            <span class="kcc-scroll-mouse"></span>
-          </a>
         </div>
       </div>
     </section><!-- /Hero Section -->
 
-    <!-- 2. About & Four Pillars Section -->
-    <section id="about" class="section kcc-cream-bg py-5">
-      <div class="container py-4">
-        <div class="row align-items-center gy-4 mb-5">
-          <div class="col-lg-7" data-aos="fade-up">
-            <span class="kcc-eyebrow">About Us</span>
-            <h2 class="kcc-section-heading">A Legacy of Faith &amp; Education</h2>
-            <p class="mb-3">
-              Founded in 1927, Kabankalan Catholic College has served as the home of Catholic education in Kabankalan City, Negros Occidental. Guided by the Gospel and rooted in the mission of the Diocese of Kabankalan, KCC forms generations of learners who excel academically, live with integrity, and serve their communities with compassion.
-            </p>
-            <p class="mb-3">
-              From Kindergarten through College, our holistic approach blends rigorous instruction with spiritual formation, research, and meaningful community engagement.
-            </p>
-            <blockquote class="kcc-quote-inline">
-              &ldquo;Teach Ye All Nations&rdquo;
-            </blockquote>
-            <div class="mt-4">
-              <a href="about.html" class="btn-kcc-navy">
-                <span>Discover Our Story</span>
-                <i class="bi bi-arrow-right"></i>
-              </a>
+    <!-- 2. Four Pillars Strip -->
+    <section class="kcc-pillars-strip" aria-label="Core Values">
+      <div class="container-xl">
+        <div class="row g-3 g-lg-0">
+
+          <div class="col-6 col-lg-3 kcc-pillar-col" data-aos="fade-up" data-aos-delay="0">
+            <div class="kcc-pillar-item">
+              <div class="kcc-pillar-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M22 10L12 5 2 10l10 5 10-5z"></path>
+                  <path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"></path>
+                  <path d="M22 10v6"></path>
+                </svg>
+              </div>
+              <h2 class="kcc-pillar-title">Academic Excellence</h2>
             </div>
           </div>
 
-          <div class="col-lg-5" data-aos="fade-up" data-aos-delay="100">
-            <div class="kcc-stats-card">
-              <div class="row g-4 text-center">
-                <div class="col-12 pb-3 border-bottom border-light border-opacity-10">
-                  <div class="kcc-stat-number">1927</div>
-                  <div class="kcc-stat-label">Year Founded</div>
-                </div>
-                <div class="col-6">
-                  <div class="kcc-stat-number">32+</div>
-                  <div class="kcc-stat-label">Programs Offered</div>
-                </div>
-                <div class="col-6 border-start border-light border-opacity-10">
-                  <div class="kcc-stat-number">99</div>
-                  <div class="kcc-stat-label">Years of Excellence</div>
-                </div>
+          <div class="col-6 col-lg-3 kcc-pillar-col" data-aos="fade-up" data-aos-delay="60">
+            <div class="kcc-pillar-item">
+              <div class="kcc-pillar-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 3v18"></path>
+                  <path d="M6 9h12"></path>
+                </svg>
               </div>
+              <h2 class="kcc-pillar-title">Faith Formation</h2>
             </div>
           </div>
+
+          <div class="col-6 col-lg-3 kcc-pillar-col" data-aos="fade-up" data-aos-delay="120">
+            <div class="kcc-pillar-item">
+              <div class="kcc-pillar-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="10" cy="7" r="3.5"></circle>
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16.5 3.6a3.5 3.5 0 0 1 0 6.8"></path>
+                </svg>
+              </div>
+              <h2 class="kcc-pillar-title">Community Service</h2>
+            </div>
+          </div>
+
+          <div class="col-6 col-lg-3 kcc-pillar-col" data-aos="fade-up" data-aos-delay="180">
+            <div class="kcc-pillar-item">
+              <div class="kcc-pillar-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"></path>
+                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                </svg>
+              </div>
+              <h2 class="kcc-pillar-title">Holistic Development</h2>
+            </div>
+          </div>
+
         </div>
+      </div>
+    </section><!-- /Four Pillars Strip -->
 
-        <!-- The Four Pillars -->
-        <div class="pt-4">
-          <div class="text-center mb-4" data-aos="fade-up">
-            <span class="kcc-eyebrow">What We Stand For</span>
-            <h2 class="kcc-section-heading">The Four Pillars</h2>
-          </div>
-
-          <div class="row g-4">
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="50">
-              <div class="kcc-card">
-                <div class="kcc-pillar-num">I</div>
-                <h3 class="h5 mb-2">Academic Excellence</h3>
-                <p class="mb-0 text-secondary small">
-                  Rigorous academics that challenge students to think critically and develop a genuine love for learning.
-                </p>
-              </div>
+    <!-- 3. About KCC Banner -->
+    <section id="about" class="kcc-about-banner">
+      <div class="container-xl">
+        <div class="row">
+          <div class="col-lg-5 offset-lg-7" data-aos="fade-up">
+            <div class="kcc-banner-eyebrow">
+              <span>About KCC</span>
+              <span class="line"></span>
             </div>
-
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-              <div class="kcc-card">
-                <div class="kcc-pillar-num">II</div>
-                <h3 class="h5 mb-2">Faith Formation</h3>
-                <p class="mb-0 text-secondary small">
-                  Deepening faith through Catholic tradition, prayer, and a personal relationship with God.
-                </p>
-              </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
-              <div class="kcc-card">
-                <div class="kcc-pillar-num">III</div>
-                <h3 class="h5 mb-2">Community Service</h3>
-                <p class="mb-0 text-secondary small">
-                  Reaching out to those in need, putting the Gospel into practice through hands-on service.
-                </p>
-              </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-              <div class="kcc-card">
-                <div class="kcc-pillar-num">IV</div>
-                <h3 class="h5 mb-2">Holistic Development</h3>
-                <p class="mb-0 text-secondary small">
-                  Shaping students who are not only skilled and knowledgeable but also grounded in strong values.
-                </p>
-              </div>
-            </div>
+            <h2 class="kcc-banner-heading">
+              A Legacy of<br>Catholic Education
+            </h2>
+            <p class="kcc-banner-text">
+              Since 1927, Kabankalan Catholic College, Inc. (KCC) has been a beacon of faith, learning, and service in Negros Occidental, forming generations of competent, compassionate, and Christ-centered individuals.
+            </p>
+            <a href="about.html" class="btn-kcc-white">
+              <span>Learn More About Us</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
         </div>
       </div>
-    </section><!-- /About & Four Pillars Section -->
+    </section><!-- /About KCC Banner -->
 
-    <!-- 3. Academic Programs Section -->
-    <section id="programs" class="section py-5">
-      <div class="container py-4">
+    <!-- 4. Our Academic Programs Section -->
+    <section id="programs" class="kcc-programs-section">
+      <div class="container-xl">
+
         <div class="text-center mb-5" data-aos="fade-up">
-          <span class="kcc-eyebrow">Academic Programs</span>
-          <h2 class="kcc-section-heading">Programs Offered</h2>
-          <p class="kcc-section-lead mx-auto">
-            From business and IT to education and criminology, KCC prepares students for the careers they want to pursue.
+          <div class="kcc-section-eyebrow">Academics</div>
+          <h2 class="kcc-section-title">Our Academic Programs</h2>
+          <p class="kcc-section-subtitle">
+            Quality Catholic education from basic to tertiary levels.
           </p>
         </div>
 
-        <!-- 3 Level Cards -->
-        <div class="row g-4 mb-5">
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="50">
-            <div class="kcc-card d-flex flex-column">
-              <div>
-                <span class="kcc-pill-tag">Tertiary</span>
-                <h3 class="h4 mb-2">College Programs</h3>
-                <p class="text-secondary">
-                  Degree programs in Business, IT, Accountancy, Education, Arts &amp; Sciences, and Criminology designed for career readiness and leadership.
-                </p>
-              </div>
-              <div class="mt-auto pt-3">
-                <a href="programs.html" class="fw-semibold text-decoration-none" style="color: var(--kcc-navy-500);">
-                  Explore Programs <i class="bi bi-arrow-right ms-1"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="kcc-card d-flex flex-column">
-              <div>
-                <span class="kcc-pill-tag">Grades 11–12</span>
-                <h3 class="h4 mb-2">Senior High School</h3>
-                <p class="text-secondary">
-                  Academic Track (STEM, ABM, HUMSS, GAS) and Technical-Vocational-Livelihood (TVL) Track strands preparing learners for college and work.
-                </p>
-              </div>
-              <div class="mt-auto pt-3">
-                <a href="senior-high.html" class="fw-semibold text-decoration-none" style="color: var(--kcc-navy-500);">
-                  View SHS Tracks <i class="bi bi-arrow-right ms-1"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="150">
-            <div class="kcc-card d-flex flex-column">
-              <div>
-                <span class="kcc-pill-tag">K to Grade 10</span>
-                <h3 class="h4 mb-2">Basic Education</h3>
-                <p class="text-secondary">
-                  Elementary and Junior High School departments nurturing young learners with strong academic and Catholic foundations.
-                </p>
-              </div>
-              <div class="mt-auto pt-3">
-                <a href="basic-education.html" class="fw-semibold text-decoration-none" style="color: var(--kcc-navy-500);">
-                  Learn More <i class="bi bi-arrow-right ms-1"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Grouped College Program Listings -->
         <div class="row g-4">
-          <div class="col-lg-4" data-aos="fade-up">
-            <div class="kcc-card">
-              <span class="kcc-pill-tag kcc-pill-navy">CMAT</span>
-              <h3 class="h5 mb-3">College of Management, Accountancy and Technology</h3>
-              <ul class="list-unstyled mb-0 d-grid gap-2 small">
-                <li><span class="kcc-program-badge">BSBA</span> Business Administration</li>
-                <li><span class="kcc-program-badge">BSIT</span> Information Technology</li>
-                <li><span class="kcc-program-badge">BSA</span> Accountancy</li>
-                <li><span class="kcc-program-badge">BSAIS</span> Accounting Information System</li>
-                <li><span class="kcc-program-badge">BSMA</span> Management Accounting</li>
-                <li><span class="kcc-program-badge">BSTM</span> Tourism Management</li>
-              </ul>
-            </div>
-          </div>
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="kcc-card">
-              <span class="kcc-pill-tag kcc-pill-navy">CEAS</span>
-              <h3 class="h5 mb-3">College of Education, Arts and Sciences</h3>
-              <ul class="list-unstyled mb-0 d-grid gap-2 small">
-                <li><span class="kcc-program-badge">BEEd</span> Elementary Education</li>
-                <li><span class="kcc-program-badge">BSEd</span> Secondary Education</li>
-                <li><span class="kcc-program-badge">BECEd</span> Early Childhood Education</li>
-                <li><span class="kcc-program-badge">BPEd</span> Physical Education</li>
-                <li><span class="kcc-program-badge">AB</span> Philosophy</li>
-                <li><span class="kcc-program-badge">BS</span> Psychology</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="kcc-card d-flex flex-column">
-              <div>
-                <span class="kcc-pill-tag kcc-pill-navy">COC</span>
-                <h3 class="h5 mb-3">College of Criminology</h3>
-                <ul class="list-unstyled mb-3 d-grid gap-2 small">
-                  <li><span class="kcc-program-badge">BS Crim</span> Bachelor of Science in Criminology</li>
-                </ul>
-                <p class="text-secondary small">
-                  Training disciplined, ethical, and service-oriented future law enforcement officers, forensic specialists, and public safety professionals.
-                </p>
+          <!-- Basic Education -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+            <a href="basic-education.html" class="kcc-program-card">
+              <div class="kcc-program-media">
+                <img
+                  src="assets/img/course/course-1.webp"
+                  alt="KCC Basic Education"
+                  loading="lazy"
+                >
               </div>
-              <div class="mt-auto pt-3">
-                <a href="programs.html" class="btn-kcc-navy btn-sm py-2 px-3 small">
-                  <span>View All Degree Details</span>
+              <div class="kcc-program-body">
+                <div class="kcc-program-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M2 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2z"></path>
+                    <path d="M22 4h-7a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h8z"></path>
+                  </svg>
+                </div>
+                <div class="kcc-program-info">
+                  <h3>Basic Education</h3>
+                  <p>A strong foundation in academics, values, and faith.</p>
+                </div>
+                <span class="kcc-program-arrow" aria-hidden="true">
                   <i class="bi bi-arrow-right"></i>
-                </a>
+                </span>
               </div>
-            </div>
+            </a>
           </div>
+
+          <!-- Senior High School -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="80">
+            <a href="senior-high.html" class="kcc-program-card">
+              <div class="kcc-program-media">
+                <img
+                  src="assets/img/course/course-2.webp"
+                  alt="KCC Senior High School"
+                  loading="lazy"
+                >
+              </div>
+              <div class="kcc-program-body">
+                <div class="kcc-program-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                  </svg>
+                </div>
+                <div class="kcc-program-info">
+                  <h3>Senior High School</h3>
+                  <p>Specialized tracks for college, career, and life readiness.</p>
+                </div>
+                <span class="kcc-program-arrow" aria-hidden="true">
+                  <i class="bi bi-arrow-right"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <!-- College Programs -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="160">
+            <a href="programs.html" class="kcc-program-card">
+              <div class="kcc-program-media">
+                <img
+                  src="assets/img/course/course-3.webp"
+                  alt="KCC College Programs"
+                  loading="lazy"
+                >
+              </div>
+              <div class="kcc-program-body">
+                <div class="kcc-program-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M22 10L12 5 2 10l10 5 10-5z"></path>
+                    <path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"></path>
+                    <path d="M22 10v6"></path>
+                  </svg>
+                </div>
+                <div class="kcc-program-info">
+                  <h3>College Programs</h3>
+                  <p>Bachelor&rsquo;s degree programs that prepare you for a meaningful career.</p>
+                </div>
+                <span class="kcc-program-arrow" aria-hidden="true">
+                  <i class="bi bi-arrow-right"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+
         </div>
       </div>
-    </section><!-- /Academic Programs Section -->
+    </section><!-- /Our Academic Programs Section -->
 
-    <!-- 4. News & Announcements Section -->
-    <section id="news" class="section kcc-cream-bg py-5">
-      <div class="container py-4">
-        <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-5" data-aos="fade-up">
-          <div>
-            <span class="kcc-eyebrow">Latest Updates</span>
-            <h2 class="kcc-section-heading mb-1">News &amp; Announcements</h2>
-            <p class="kcc-section-lead mb-0">
-              What&rsquo;s new at KCC &mdash; announcements, events, and stories from our community.
+    <!-- 5. Apply for Admission Banner -->
+    <section id="admissions-cta" class="kcc-admission-banner">
+      <div class="container-xl">
+        <div class="row">
+          <div class="col-lg-5" data-aos="fade-up">
+            <div class="kcc-banner-eyebrow">
+              <span class="line"></span>
+              <span>Apply for Admission</span>
+            </div>
+            <h2 class="kcc-banner-heading">
+              Be Part of the<br>KCC Community
+            </h2>
+            <p class="kcc-banner-text">
+              Start your KCC journey today. Learn about our admission process and program offerings.
             </p>
-          </div>
-          <a href="news.html" class="btn-kcc-navy">
-            <span>View All News &amp; Updates</span>
-            <i class="bi bi-arrow-right"></i>
-          </a>
-        </div>
-
-        <div class="row g-4">
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="50">
-            <article class="kcc-card d-flex flex-column">
-              <div class="d-flex align-items-center justify-content-between mb-3">
-                <span class="kcc-pill-tag mb-0">Community</span>
-                <span class="small text-secondary">December 2024</span>
-              </div>
-              <h3 class="h5 mb-2">KCC Community Outreach: Christmas Gift-Giving and Feeding Program</h3>
-              <p class="text-secondary small mb-4">
-                Students, faculty, and staff came together to share the joy of Christmas with partner communities through gift-giving and a feeding program.
-              </p>
-              <a href="news.html#christmas-outreach-2024" class="mt-auto fw-semibold small" style="color: var(--kcc-navy-500);">
-                Read Story <i class="bi bi-arrow-right ms-1"></i>
-              </a>
-            </article>
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <article class="kcc-card d-flex flex-column">
-              <div class="d-flex align-items-center justify-content-between mb-3">
-                <span class="kcc-pill-tag kcc-pill-navy mb-0">Announcement</span>
-                <span class="small text-secondary">December 2024</span>
-              </div>
-              <h3 class="h5 mb-2">KCC Announces Expanded Programs for College Department</h3>
-              <p class="text-secondary small mb-4">
-                Kabankalan Catholic College expands its tertiary offerings to open more pathways for students across Negros Occidental.
-              </p>
-              <a href="news.html#new-program-announcement" class="mt-auto fw-semibold small" style="color: var(--kcc-navy-500);">
-                Read Story <i class="bi bi-arrow-right ms-1"></i>
-              </a>
-            </article>
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="150">
-            <article class="kcc-card d-flex flex-column">
-              <div class="d-flex align-items-center justify-content-between mb-3">
-                <span class="kcc-pill-tag mb-0">Event</span>
-                <span class="small text-secondary">January 2025</span>
-              </div>
-              <h3 class="h5 mb-2">College Department Holds Intramurals and College Week</h3>
-              <p class="text-secondary small mb-4">
-                KCCians celebrated sportsmanship, camaraderie, and talent across academic, cultural, and athletic events during College Week.
-              </p>
-              <a href="news.html#college-week-2025" class="mt-auto fw-semibold small" style="color: var(--kcc-navy-500);">
-                Read Story <i class="bi bi-arrow-right ms-1"></i>
-              </a>
-            </article>
+            <a href="admissions.html" class="btn-kcc-white">
+              <span>Apply for Admission</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
         </div>
       </div>
-    </section><!-- /News & Announcements Section -->
-
-    <!-- 5. Campus Life Section -->
-    <section id="campus-life" class="section py-5">
-      <div class="container py-4">
-        <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-5" data-aos="fade-up">
-          <div>
-            <span class="kcc-eyebrow">Campus Life</span>
-            <h2 class="kcc-section-heading mb-1">Life at KCC</h2>
-            <p class="kcc-section-lead mb-0">
-              Campus life at KCC goes beyond the classroom &mdash; friendships are made, faith is strengthened, and memories are built.
-            </p>
-          </div>
-          <a href="campus-life.html" class="btn-kcc-navy">
-            <span>See More Albums</span>
-            <i class="bi bi-arrow-right"></i>
-          </a>
-        </div>
-
-        <div class="d-flex align-items-center justify-content-between mb-3">
-          <h3 class="h5 mb-0" style="font-family: var(--heading-font); color: var(--kcc-navy-700);">Academic Events</h3>
-          <span class="small text-secondary">2 Featured Albums</span>
-        </div>
-
-        <div class="row g-4">
-          <!-- Album 1: CMAT Pinning 2025 -->
-          <div class="col-lg-6" data-aos="fade-up">
-            <div class="kcc-album-card">
-              <div class="kcc-mosaic">
-                <a href="https://kcc.edu.ph/images/gallery/academic-events/cmat-pinning-2025/536273338_122180075312372251_4772766521732338321_n.webp" class="glightbox" data-gallery="cmat-pinning-home">
-                  <img src="https://kcc.edu.ph/images/gallery/academic-events/cmat-pinning-2025/536273338_122180075312372251_4772766521732338321_n.webp" alt="CMAT Pinning 2025 Photo 1" loading="lazy">
-                </a>
-                <a href="https://kcc.edu.ph/images/gallery/academic-events/cmat-pinning-2025/536276665_122180072150372251_30844131193308126_n.webp" class="glightbox" data-gallery="cmat-pinning-home">
-                  <img src="https://kcc.edu.ph/images/gallery/academic-events/cmat-pinning-2025/536276665_122180072150372251_30844131193308126_n.webp" alt="CMAT Pinning 2025 Photo 2" loading="lazy">
-                </a>
-                <a href="https://kcc.edu.ph/images/gallery/academic-events/cmat-pinning-2025/540696974_122180072252372251_8432824614119144001_n.webp" class="glightbox" data-gallery="cmat-pinning-home">
-                  <img src="https://kcc.edu.ph/images/gallery/academic-events/cmat-pinning-2025/540696974_122180072252372251_8432824614119144001_n.webp" alt="CMAT Pinning 2025 Photo 3" loading="lazy">
-                </a>
-                <a href="https://kcc.edu.ph/images/gallery/academic-events/cmat-pinning-2025/542756196_122180073596372251_7695230771584775329_n.webp" class="glightbox" data-gallery="cmat-pinning-home">
-                  <img src="https://kcc.edu.ph/images/gallery/academic-events/cmat-pinning-2025/542756196_122180073596372251_7695230771584775329_n.webp" alt="CMAT Pinning 2025 Photo 4" loading="lazy">
-                </a>
-                <a href="https://kcc.edu.ph/images/gallery/academic-events/cmat-pinning-2025/542761544_122180075864372251_5576184613401241553_n.webp" class="glightbox" data-gallery="cmat-pinning-home">
-                  <img src="https://kcc.edu.ph/images/gallery/academic-events/cmat-pinning-2025/542761544_122180075864372251_5576184613401241553_n.webp" alt="CMAT Pinning 2025 Photo 5" loading="lazy">
-                </a>
-              </div>
-              <div class="kcc-album-body">
-                <h4>CMAT Pinning 2025</h4>
-                <span class="kcc-album-count">11 photos</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Album 2: Criminology Reception Rites -->
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="kcc-album-card">
-              <div class="kcc-mosaic">
-                <a href="https://kcc.edu.ph/images/gallery/academic-events/criminology-reception-rites/536213665_122178353918372251_2309034783136926254_n.webp" class="glightbox" data-gallery="crim-rites-home">
-                  <img src="https://kcc.edu.ph/images/gallery/academic-events/criminology-reception-rites/536213665_122178353918372251_2309034783136926254_n.webp" alt="Criminology Reception Rites Photo 1" loading="lazy">
-                </a>
-                <a href="https://kcc.edu.ph/images/gallery/academic-events/criminology-reception-rites/536213665_122178354386372251_9137965859312545096_n.webp" class="glightbox" data-gallery="crim-rites-home">
-                  <img src="https://kcc.edu.ph/images/gallery/academic-events/criminology-reception-rites/536213665_122178354386372251_9137965859312545096_n.webp" alt="Criminology Reception Rites Photo 2" loading="lazy">
-                </a>
-                <a href="https://kcc.edu.ph/images/gallery/academic-events/criminology-reception-rites/536243221_122178354662372251_597857995532193172_n.webp" class="glightbox" data-gallery="crim-rites-home">
-                  <img src="https://kcc.edu.ph/images/gallery/academic-events/criminology-reception-rites/536243221_122178354662372251_597857995532193172_n.webp" alt="Criminology Reception Rites Photo 3" loading="lazy">
-                </a>
-                <a href="https://kcc.edu.ph/images/gallery/academic-events/criminology-reception-rites/536278225_122178354998372251_3314341047506452689_n.webp" class="glightbox" data-gallery="crim-rites-home">
-                  <img src="https://kcc.edu.ph/images/gallery/academic-events/criminology-reception-rites/536278225_122178354998372251_3314341047506452689_n.webp" alt="Criminology Reception Rites Photo 4" loading="lazy">
-                </a>
-                <a href="https://kcc.edu.ph/images/gallery/academic-events/criminology-reception-rites/536281625_122178360626372251_2695528340389584096_n.webp" class="glightbox" data-gallery="crim-rites-home">
-                  <img src="https://kcc.edu.ph/images/gallery/academic-events/criminology-reception-rites/536281625_122178360626372251_2695528340389584096_n.webp" alt="Criminology Reception Rites Photo 5" loading="lazy">
-                </a>
-              </div>
-              <div class="kcc-album-body">
-                <h4>Criminology Reception Rites</h4>
-                <span class="kcc-album-count">15 photos</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section><!-- /Campus Life Section -->
+    </section><!-- /Apply for Admission Banner -->
 
   </main>
 
   <!-- Footer -->
-  <footer id="footer" class="kcc-footer">
-    <div class="container">
-      <div class="row gy-4">
-        <div class="col-lg-5">
-          <div class="d-flex align-items-center gap-3 mb-3">
-            <img src="https://kcc.edu.ph/.netlify/images?w=44&q=80&url=%2Fimages%2Fkcc-logo.png" alt="KCC Seal" width="44" height="44">
-            <div>
-              <div class="footer-brand-name">Kabankalan Catholic College</div>
-              <div class="small" style="color: var(--kcc-gold-300);">Est. 1927 &middot; Negros Occidental</div>
+  <footer id="footer" class="kcc-footer-modern">
+    <div class="kcc-footer-top">
+      <div class="container-xl">
+        <div class="row gy-4 align-items-start">
+
+          <div class="col-lg-4">
+            <div class="kcc-footer-brand">
+              <img src="https://kcc.edu.ph/.netlify/images?w=96&q=85&url=%2Fimages%2Fkcc-logo.png" alt="Kabankalan Catholic College Seal" width="52" height="52">
+              <div>
+                <div class="kcc-footer-brand-title">Kabankalan Catholic College, Inc.</div>
+                <div class="kcc-footer-brand-tagline">Catholic Education: Our Identity, Our Mission.</div>
+              </div>
             </div>
           </div>
-          <p class="mb-3">
-            A Catholic school in Kabankalan City forming students who are grounded in faith, strong in academics, and ready to serve.
-          </p>
-          <p class="small text-white-50 mb-0">
-            KCC commits to provide quality and inclusive Catholic education, rooted in the Gospel and driven by innovative research and meaningful community engagements, empowering its members to become effective agents of societal transformation.
-          </p>
-        </div>
 
-        <div class="col-lg-3 col-md-6">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="about.html">About KCC</a></li>
-            <li><a href="programs.html">College Programs</a></li>
-            <li><a href="senior-high.html">Senior High School</a></li>
-            <li><a href="basic-education.html">Basic Education</a></li>
-            <li><a href="news.html">News &amp; Updates</a></li>
-            <li><a href="admissions.html">Admissions</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="handbook.html">Handbook</a></li>
-          </ul>
-        </div>
+          <div class="col-6 col-lg-2 kcc-footer-col kcc-footer-divider">
+            <h4>Quick Links</h4>
+            <ul class="kcc-footer-links">
+              <li><a href="about.html">About</a></li>
+              <li><a href="programs.html">Academics</a></li>
+              <li><a href="admissions.html">Admissions</a></li>
+              <li><a href="campus-life.html">Campus Life</a></li>
+              <li><a href="news.html">News</a></li>
+            </ul>
+          </div>
 
-        <div class="col-lg-4 col-md-6">
-          <h4>Contact Us</h4>
-          <ul class="d-grid gap-2">
-            <li><i class="bi bi-geo-alt me-2 text-warning"></i>Guanzon St., Brgy. 1, Kabankalan City, Negros Occidental</li>
-            <li><i class="bi bi-telephone me-2 text-warning"></i><a href="tel:0324712479">(032) 4712-479</a></li>
-            <li><i class="bi bi-envelope me-2 text-warning"></i><a href="mailto:kcc_1927@yahoo.com">kcc_1927@yahoo.com</a></li>
-            <li><i class="bi bi-clock me-2 text-warning"></i>8:00 AM &ndash; 12:NN | 1:00 &ndash; 5:00 PM</li>
-            <li class="pt-2">
-              <a href="https://www.facebook.com/KCCInc1927" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center gap-2">
-                <i class="bi bi-facebook fs-5 text-warning"></i>
-                <span>@KCCInc1927</span>
+          <div class="col-12 col-md-6 col-lg-4 kcc-footer-col kcc-footer-divider">
+            <h4>Contact Us</h4>
+            <ul class="kcc-footer-contact">
+              <li>
+                <i class="bi bi-geo-alt-fill"></i>
+                <span>Guanzon St., Brgy. 1, Kabankalan City, Negros Occidental</span>
+              </li>
+              <li>
+                <i class="bi bi-telephone-fill"></i>
+                <a href="tel:0324712479">(032) 4712-479</a>
+              </li>
+              <li>
+                <i class="bi bi-envelope-fill"></i>
+                <a href="mailto:kcc_1927@yahoo.com">kcc_1927@yahoo.com</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-6 col-lg-2 kcc-footer-col kcc-footer-divider">
+            <h4>Follow Us</h4>
+            <div class="kcc-social-list">
+              <a href="https://www.facebook.com/KCCInc1927" target="_blank" rel="noopener noreferrer" class="kcc-social-btn" aria-label="KCC Facebook">
+                <i class="bi bi-facebook"></i>
               </a>
-            </li>
-          </ul>
+              <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="kcc-social-btn" aria-label="KCC YouTube">
+                <i class="bi bi-youtube"></i>
+              </a>
+              <a href="https://www.facebook.com/KCCInc1927" target="_blank" rel="noopener noreferrer" class="kcc-social-btn" aria-label="KCC Messenger">
+                <i class="bi bi-messenger"></i>
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
+    </div>
 
-      <div class="kcc-footer-bottom text-center">
-        &copy; 2026 Kabankalan Catholic College, Inc. All rights reserved. &middot; &ldquo;Teach Ye All Nations&rdquo; &mdash; Mt 28:19
+    <div class="kcc-footer-bottom">
+      <div class="container-xl d-flex flex-column flex-md-row align-items-center justify-content-between gap-2">
+        <div>&copy; 2026 Kabankalan Catholic College, Inc. All Rights Reserved.</div>
+        <div class="d-flex align-items-center gap-3">
+          <a href="handbook.html">Student Handbook</a>
+          <span class="opacity-50">|</span>
+          <a href="contact.html">Contact Us</a>
+        </div>
       </div>
     </div>
   </footer><!-- End Footer -->
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#home" id="scrollTopBtn" class="kcc-scroll-top" aria-label="Scroll to top">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
-  <!-- Main & KCC JS Files -->
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/kcc.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      // Header scroll shadow & scroll-top visibility
+      const scrollTopBtn = document.getElementById("scrollTopBtn");
+      function handleScroll() {
+        const y = window.scrollY || window.pageYOffset;
+        document.body.classList.toggle("scrolled", y > 24);
+        if (scrollTopBtn) {
+          scrollTopBtn.classList.toggle("active", y > 240);
+        }
+      }
+      window.addEventListener("scroll", handleScroll, { passive: true });
+      handleScroll();
+
+      // Mobile navigation toggle
+      const mobileToggle = document.getElementById("mobileNavToggle");
+      if (mobileToggle) {
+        mobileToggle.addEventListener("click", function () {
+          const isOpen = document.body.classList.toggle("mobile-nav-active");
+          mobileToggle.setAttribute("aria-expanded", String(isOpen));
+          const icon = mobileToggle.querySelector("i");
+          if (icon) {
+            icon.classList.toggle("bi-list", !isOpen);
+            icon.classList.toggle("bi-x-lg", isOpen);
+          }
+        });
+      }
+
+      // Mobile dropdown toggle
+      document.querySelectorAll(".kcc-nav .dropdown-trigger").forEach(function (trigger) {
+        trigger.addEventListener("click", function (e) {
+          if (window.innerWidth < 1200) {
+            e.preventDefault();
+            trigger.parentElement.classList.toggle("dropdown-open");
+          }
+        });
+      });
+
+      // Close mobile nav on link click
+      document.querySelectorAll(".kcc-nav a:not(.dropdown-trigger)").forEach(function (link) {
+        link.addEventListener("click", function () {
+          if (document.body.classList.contains("mobile-nav-active")) {
+            document.body.classList.remove("mobile-nav-active");
+            if (mobileToggle) {
+              mobileToggle.setAttribute("aria-expanded", "false");
+              const icon = mobileToggle.querySelector("i");
+              if (icon) {
+                icon.classList.add("bi-list");
+                icon.classList.remove("bi-x-lg");
+              }
+            }
+          }
+        });
+      });
+
+      // Initialize AOS animations
+      if (typeof AOS !== "undefined") {
+        AOS.init({
+          duration: 600,
+          easing: "ease-out-cubic",
+          once: true,
+          mirror: false
+        });
+      }
+    })();
+  </script>
+
 </body>
 
 </html>
