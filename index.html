@@ -58,6 +58,12 @@
           <li><a href="admissions.html">Admissions</a></li>
           <li><a href="campus-life.html">Campus Life</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li class="kcc-mobile-enroll-item">
+            <a class="btn-kcc-primary" href="https://kcc.wela.ph/" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-mortarboard-fill"></i>
+              <span>Enroll Now</span>
+            </a>
+          </li>
         </ul>
       </nav>
 
@@ -438,17 +444,45 @@
 
       // Mobile navigation toggle
       const mobileToggle = document.getElementById("mobileNavToggle");
-      if (mobileToggle) {
-        mobileToggle.addEventListener("click", function () {
-          const isOpen = document.body.classList.toggle("mobile-nav-active");
-          mobileToggle.setAttribute("aria-expanded", String(isOpen));
+      const navMenu = document.getElementById("navmenu");
+
+      function setMobileNav(open) {
+        document.body.classList.toggle("mobile-nav-active", open);
+        if (mobileToggle) {
+          mobileToggle.setAttribute("aria-expanded", String(open));
           const icon = mobileToggle.querySelector("i");
           if (icon) {
-            icon.classList.toggle("bi-list", !isOpen);
-            icon.classList.toggle("bi-x-lg", isOpen);
+            icon.classList.toggle("bi-list", !open);
+            icon.classList.toggle("bi-x-lg", open);
           }
+        }
+      }
+
+      if (mobileToggle) {
+        mobileToggle.addEventListener("click", function (e) {
+          e.stopPropagation();
+          setMobileNav(!document.body.classList.contains("mobile-nav-active"));
         });
       }
+
+      // Close mobile nav when clicking outside or pressing Escape
+      document.addEventListener("click", function (e) {
+        if (
+          document.body.classList.contains("mobile-nav-active") &&
+          navMenu &&
+          !navMenu.contains(e.target) &&
+          mobileToggle &&
+          !mobileToggle.contains(e.target)
+        ) {
+          setMobileNav(false);
+        }
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && document.body.classList.contains("mobile-nav-active")) {
+          setMobileNav(false);
+        }
+      });
 
       // Mobile dropdown toggle
       document.querySelectorAll(".kcc-nav .dropdown-trigger").forEach(function (trigger) {
@@ -464,15 +498,7 @@
       document.querySelectorAll(".kcc-nav a:not(.dropdown-trigger)").forEach(function (link) {
         link.addEventListener("click", function () {
           if (document.body.classList.contains("mobile-nav-active")) {
-            document.body.classList.remove("mobile-nav-active");
-            if (mobileToggle) {
-              mobileToggle.setAttribute("aria-expanded", "false");
-              const icon = mobileToggle.querySelector("i");
-              if (icon) {
-                icon.classList.add("bi-list");
-                icon.classList.remove("bi-x-lg");
-              }
-            }
+            setMobileNav(false);
           }
         });
       });

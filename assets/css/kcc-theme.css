@@ -352,9 +352,19 @@ a {
     border-top: 1px solid var(--kcc-border);
   }
 
-  .kcc-mobile-enroll-item .btn-kcc-primary {
+  .kcc-nav > ul > li.kcc-mobile-enroll-item > a.btn-kcc-primary {
     width: 100%;
     padding: 12px 20px;
+    justify-content: center;
+    gap: 10px;
+    color: var(--kcc-white);
+    border-radius: 999px;
+    background: linear-gradient(135deg, #1b63e4 0%, #1248b8 100%);
+  }
+
+  .kcc-nav > ul > li.kcc-mobile-enroll-item > a.btn-kcc-primary:hover {
+    background: linear-gradient(135deg, #1553c9 0%, #0d3a99 100%);
+    color: var(--kcc-white);
   }
 
   .btn-enroll {
@@ -1067,16 +1077,16 @@ a {
 
 @media (max-width: 991px) {
   .kcc-admission-banner {
-    min-height: 360px;
-    padding: 56px 0;
-    background-position: 80% center;
+    min-height: 0;
+    padding: 52px 0;
+    background-position: 82% center;
   }
 
   .kcc-admission-banner::before {
     background: linear-gradient(
       180deg,
       rgba(11, 53, 118, 0.92) 0%,
-      rgba(11, 53, 118, 0.74) 100%
+      rgba(11, 53, 118, 0.78) 100%
     );
   }
 }
