@@ -1,0 +1,813 @@
+/*--------------------------------------------------------------
+# Kabankalan Catholic College, Inc. (KCC) Custom Styles
+# Layered over Bootstrap 5.3.7 & Mentor Template
+--------------------------------------------------------------*/
+:root {
+  --kcc-navy-50: #eef1f8;
+  --kcc-navy-100: #d0d8ed;
+  --kcc-navy-200: #a1b1db;
+  --kcc-navy-300: #728ac9;
+  --kcc-navy-500: #1a237e;
+  --kcc-navy-600: #151c65;
+  --kcc-navy-700: #10154c;
+  --kcc-navy-800: #0b0e33;
+  --kcc-navy-900: #06071a;
+
+  --kcc-gold-50: #fef9e7;
+  --kcc-gold-100: #fcf0c3;
+  --kcc-gold-200: #f9e187;
+  --kcc-gold-300: #f6d24b;
+  --kcc-gold-400: #d4a017;
+  --kcc-gold-500: #b8860b;
+  --kcc-gold-600: #9a7209;
+  --kcc-gold-700: #7c5d07;
+
+  --kcc-cream: #fbfaf6;
+}
+
+body {
+  font-family: var(--default-font);
+  color: var(--default-color);
+  background-color: #ffffff;
+  overflow-x: clip;
+}
+
+/*--------------------------------------------------------------
+# Header (Dark Navy Sticky Navbar)
+--------------------------------------------------------------*/
+.header {
+  background-color: rgba(6, 7, 26, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(212, 160, 23, 0.16);
+  padding: 12px 0;
+  transition: all 0.3s ease;
+}
+
+.scrolled .header {
+  box-shadow: 0 8px 30px rgba(6, 7, 26, 0.35);
+}
+
+.header .logo img {
+  max-height: 44px;
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  margin-right: 12px;
+}
+
+.header .logo .brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.header .logo .sitename {
+  font-family: var(--heading-font);
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--kcc-gold-300);
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.header .logo .tagline {
+  font-family: var(--default-font);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 2px;
+}
+
+.header .btn-getstarted,
+.header .btn-getstarted:focus {
+  background: var(--kcc-gold-400);
+  color: var(--kcc-navy-900);
+  font-family: var(--default-font);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: 8px;
+  margin-left: 20px;
+  transition: all 0.25s ease;
+}
+
+.header .btn-getstarted:hover {
+  background: var(--kcc-gold-300);
+  color: var(--kcc-navy-900);
+  transform: translateY(-1px);
+}
+
+.navmenu a,
+.navmenu a:focus {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.navmenu a:hover,
+.navmenu .active,
+.navmenu .active:focus {
+  color: var(--kcc-gold-300);
+}
+
+.navmenu .dropdown ul {
+  background: var(--kcc-navy-800);
+  border: 1px solid rgba(212, 160, 23, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+}
+
+.navmenu .dropdown ul a {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.88rem;
+}
+
+.navmenu .dropdown ul a:hover,
+.navmenu .dropdown ul a.active {
+  color: var(--kcc-gold-300);
+  background: rgba(212, 160, 23, 0.08);
+}
+
+.mobile-nav-toggle {
+  color: #ffffff;
+}
+
+@media (max-width: 1199px) {
+  .header .logo .tagline {
+    display: none;
+  }
+  .header .logo .sitename {
+    font-size: 0.95rem;
+  }
+  .mobile-nav-active .navmenu > ul {
+    background-color: var(--kcc-navy-800);
+    border: 1px solid rgba(212, 160, 23, 0.2);
+  }
+}
+
+/*--------------------------------------------------------------
+# Buttons & Badges
+--------------------------------------------------------------*/
+.btn-kcc-gold {
+  background-color: var(--kcc-gold-400);
+  color: var(--kcc-navy-900);
+  font-weight: 600;
+  padding: 13px 28px;
+  border-radius: 10px;
+  border: 1px solid var(--kcc-gold-400);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.btn-kcc-gold:hover {
+  background-color: var(--kcc-gold-300);
+  border-color: var(--kcc-gold-300);
+  color: var(--kcc-navy-900);
+  transform: translateY(-2px);
+}
+
+.btn-kcc-outline-light {
+  background-color: rgba(26, 35, 126, 0.35);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 13px 28px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.btn-kcc-outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: var(--kcc-gold-400);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.btn-kcc-navy {
+  background-color: var(--kcc-navy-500);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 12px 26px;
+  border-radius: 10px;
+  border: 1px solid var(--kcc-navy-500);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.btn-kcc-navy:hover {
+  background-color: var(--kcc-navy-700);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.kcc-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--kcc-gold-600);
+  margin-bottom: 10px;
+}
+
+.kcc-eyebrow-light {
+  color: var(--kcc-gold-300);
+}
+
+.kcc-section-heading {
+  font-family: var(--heading-font);
+  font-size: clamp(1.9rem, 3vw, 2.65rem);
+  font-weight: 700;
+  color: var(--kcc-navy-700);
+  margin-bottom: 14px;
+}
+
+.kcc-section-lead {
+  font-size: 1.05rem;
+  color: #526071;
+  max-width: 680px;
+}
+
+.kcc-cream-bg {
+  background-color: var(--kcc-cream);
+}
+
+.kcc-navy-bg {
+  background: radial-gradient(circle at 50% 0%, #151c65 0%, #0b0e33 48%, #06071a 100%);
+  color: #ffffff;
+}
+
+/*--------------------------------------------------------------
+# Homepage Hero
+--------------------------------------------------------------*/
+.kcc-hero {
+  position: relative;
+  min-height: calc(100vh - 68px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 72px 0 48px;
+  background: radial-gradient(circle at 50% 25%, #161e6b 0%, #0c103a 48%, #06071a 100%);
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.kcc-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(212, 160, 23, 0.14) 1px, transparent 1px);
+  background-size: 44px 44px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.kcc-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.kcc-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 20px;
+  border-radius: 999px;
+  background: rgba(212, 160, 23, 0.08);
+  border: 1px solid rgba(212, 160, 23, 0.3);
+  color: var(--kcc-gold-300);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 26px;
+}
+
+.kcc-hero-badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--kcc-gold-400);
+}
+
+.kcc-hero-seal {
+  width: 128px;
+  height: 128px;
+  object-fit: contain;
+  margin-bottom: 22px;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.45));
+}
+
+.kcc-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 14px auto;
+  max-width: 240px;
+}
+
+.kcc-ornament span.line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 160, 23, 0.5), transparent);
+}
+
+.kcc-ornament span.diamond {
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
+  border: 1px solid rgba(212, 160, 23, 0.7);
+}
+
+.kcc-hero h1 {
+  font-family: var(--heading-font);
+  font-size: clamp(2.25rem, 5vw, 3.85rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+  line-height: 1.15;
+}
+
+.kcc-hero-tagline {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--kcc-gold-300);
+  margin-bottom: 16px;
+}
+
+.kcc-hero-motto {
+  font-family: var(--quote-font);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.78);
+  margin-bottom: 14px;
+}
+
+.kcc-hero-copy {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.76);
+  max-width: 620px;
+  margin: 0 auto 30px;
+  line-height: 1.7;
+}
+
+.kcc-scroll-cue {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 38px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.kcc-scroll-cue:hover {
+  color: var(--kcc-gold-300);
+}
+
+.kcc-scroll-mouse {
+  width: 22px;
+  height: 36px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.kcc-scroll-mouse::after {
+  content: "";
+  width: 3px;
+  height: 7px;
+  border-radius: 2px;
+  background: var(--kcc-gold-400);
+}
+
+/*--------------------------------------------------------------
+# Subpage Banner (Page Title)
+--------------------------------------------------------------*/
+.kcc-page-banner {
+  background: radial-gradient(circle at 50% 0%, #172070 0%, #0b0e33 58%, #06071a 100%);
+  color: #ffffff;
+  padding: 64px 0 54px;
+  position: relative;
+  border-bottom: 3px solid var(--kcc-gold-400);
+}
+
+.kcc-page-banner .kcc-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 14px;
+}
+
+.kcc-page-banner .kcc-breadcrumb a {
+  color: var(--kcc-gold-300);
+}
+
+.kcc-page-banner h1 {
+  font-family: var(--heading-font);
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.kcc-page-banner p.lead {
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 720px;
+  margin-bottom: 0;
+  font-size: 1.06rem;
+}
+
+/*--------------------------------------------------------------
+# Cards, Stats, Pillars & Program Boxes
+--------------------------------------------------------------*/
+.kcc-stats-card {
+  background: linear-gradient(145deg, var(--kcc-navy-800), var(--kcc-navy-900));
+  border: 1px solid rgba(212, 160, 23, 0.25);
+  border-radius: 16px;
+  padding: 36px 28px;
+  color: #ffffff;
+  box-shadow: 0 18px 40px rgba(6, 7, 26, 0.14);
+}
+
+.kcc-stat-number {
+  font-family: var(--heading-font);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--kcc-gold-300);
+  line-height: 1.1;
+}
+
+.kcc-stat-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 4px;
+}
+
+.kcc-quote-inline {
+  font-family: var(--quote-font);
+  font-style: italic;
+  font-size: 1.45rem;
+  color: var(--kcc-navy-500);
+  border-left: 3px solid var(--kcc-gold-400);
+  padding-left: 16px;
+  margin: 22px 0 0;
+}
+
+.kcc-card {
+  background: #ffffff;
+  border: 1px solid #e6e9f2;
+  border-radius: 14px;
+  padding: 28px;
+  height: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.kcc-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 160, 23, 0.55);
+  box-shadow: 0 16px 36px rgba(16, 21, 76, 0.08);
+}
+
+.kcc-pillar-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--kcc-navy-50);
+  color: var(--kcc-navy-500);
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 16px;
+}
+
+.kcc-card h3,
+.kcc-card h4 {
+  font-family: var(--heading-font);
+  color: var(--kcc-navy-700);
+  font-weight: 700;
+}
+
+.kcc-pill-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--kcc-gold-50);
+  color: var(--kcc-gold-700);
+  border: 1px solid var(--kcc-gold-200);
+  margin-bottom: 12px;
+}
+
+.kcc-pill-navy {
+  background: var(--kcc-navy-50);
+  color: var(--kcc-navy-600);
+  border-color: var(--kcc-navy-100);
+}
+
+.kcc-program-badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--kcc-navy-500);
+  color: #ffffff;
+  margin-right: 8px;
+}
+
+/*--------------------------------------------------------------
+# About Sticky Jump Nav & Timeline
+--------------------------------------------------------------*/
+.kcc-subnav {
+  background: #ffffff;
+  border-bottom: 1px solid #e6e9f2;
+  position: sticky;
+  top: 68px;
+  z-index: 90;
+  padding: 12px 0;
+}
+
+.kcc-subnav .nav-pills .nav-link {
+  color: var(--kcc-navy-700);
+  font-weight: 600;
+  font-size: 0.88rem;
+  border-radius: 999px;
+  padding: 7px 16px;
+}
+
+.kcc-subnav .nav-pills .nav-link:hover,
+.kcc-subnav .nav-pills .nav-link.active {
+  background: var(--kcc-navy-500);
+  color: #ffffff;
+}
+
+.kcc-timeline {
+  position: relative;
+  padding-left: 32px;
+  border-left: 2px solid var(--kcc-gold-300);
+}
+
+.kcc-timeline-item {
+  position: relative;
+  margin-bottom: 28px;
+  padding: 20px 24px;
+  background: #ffffff;
+  border: 1px solid #e6e9f2;
+  border-radius: 12px;
+}
+
+.kcc-timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -40px;
+  top: 24px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--kcc-gold-400);
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 0 2px var(--kcc-navy-500);
+}
+
+.kcc-timeline-year {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--kcc-gold-600);
+  margin-bottom: 4px;
+}
+
+.kcc-value-letter {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--kcc-navy-500);
+  color: var(--kcc-gold-300);
+  font-family: var(--heading-font);
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/*--------------------------------------------------------------
+# Gallery 5-Photo Mosaic Cards (Homepage & Campus Life)
+--------------------------------------------------------------*/
+.kcc-album-card {
+  background: #ffffff;
+  border: 1px solid #e6e9f2;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.kcc-album-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(16, 21, 76, 0.1);
+}
+
+.kcc-mosaic {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 170px 100px;
+  gap: 4px;
+  background: #f1f3f9;
+}
+
+.kcc-mosaic a {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background: #0b0e33;
+}
+
+.kcc-mosaic a:first-child {
+  grid-column: 1 / -1;
+}
+
+.kcc-mosaic.mosaic-1 {
+  grid-template-rows: 274px;
+}
+
+.kcc-mosaic.mosaic-3 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.kcc-mosaic.mosaic-4 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.kcc-mosaic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.kcc-mosaic a:hover img {
+  transform: scale(1.06);
+}
+
+.kcc-album-body {
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.kcc-album-body h4 {
+  font-family: var(--heading-font);
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--kcc-navy-700);
+  margin: 0;
+}
+
+.kcc-album-count {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--kcc-gold-700);
+  background: var(--kcc-gold-50);
+  border: 1px solid var(--kcc-gold-200);
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/*--------------------------------------------------------------
+# Filter Pills (News & Campus Life)
+--------------------------------------------------------------*/
+.kcc-filter-btn {
+  border: 1px solid #d7dceb;
+  background: #ffffff;
+  color: var(--kcc-navy-700);
+  font-size: 0.86rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.kcc-filter-btn:hover {
+  border-color: var(--kcc-navy-500);
+  color: var(--kcc-navy-500);
+}
+
+.kcc-filter-btn.active {
+  background: var(--kcc-navy-500);
+  border-color: var(--kcc-navy-500);
+  color: #ffffff;
+}
+
+/*--------------------------------------------------------------
+# Admissions Step Cards
+--------------------------------------------------------------*/
+.kcc-step-num {
+  font-family: var(--heading-font);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--kcc-gold-400);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+/*--------------------------------------------------------------
+# Footer (Dark Navy)
+--------------------------------------------------------------*/
+.kcc-footer {
+  background-color: var(--kcc-navy-900);
+  color: rgba(255, 255, 255, 0.78);
+  padding-top: 64px;
+  border-top: 3px solid var(--kcc-gold-400);
+  font-size: 0.92rem;
+}
+
+.kcc-footer h4 {
+  font-family: var(--heading-font);
+  color: var(--kcc-gold-300);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.kcc-footer .footer-brand-name {
+  font-family: var(--heading-font);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.kcc-footer a {
+  color: rgba(255, 255, 255, 0.75);
+  transition: color 0.2s ease;
+}
+
+.kcc-footer a:hover {
+  color: var(--kcc-gold-300);
+}
+
+.kcc-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.kcc-footer ul li {
+  margin-bottom: 9px;
+}
+
+.kcc-footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 44px;
+  padding: 22px 0;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.scroll-top {
+  background-color: var(--kcc-gold-400);
+}
+
+.scroll-top i {
+  color: var(--kcc-navy-900);
+}
+
+.scroll-top:hover {
+  background-color: var(--kcc-gold-300);
+}
