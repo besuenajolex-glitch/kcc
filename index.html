@@ -23,7 +23,7 @@
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
 
   <!-- KCC Modern Royal Blue Theme -->
-  <link href="assets/css/kcc-theme.css" rel="stylesheet">
+  <link href="assets/css/kcc-theme.css?v=20261124b" rel="stylesheet">
 </head>
 
 <body class="kcc-home">
@@ -83,6 +83,7 @@
 
     <!-- 1. Hero Section -->
     <section id="home" class="kcc-hero-modern">
+      <div class="kcc-parallax-bg kcc-parallax-hero" data-parallax-speed="0.28" aria-hidden="true"></div>
       <div class="container-xl">
         <div class="row align-items-end g-4">
 
@@ -127,68 +128,93 @@
       </div>
     </section><!-- /Hero Section -->
 
-    <!-- 2. Four Pillars Strip -->
-    <section class="kcc-pillars-strip" aria-label="Core Values">
+    <!-- 2. The Four Pillars Section -->
+    <section id="pillars" class="kcc-pillars-section" aria-labelledby="pillarsHeading">
       <div class="container-xl">
-        <div class="row g-3 g-lg-0">
 
-          <div class="col-6 col-lg-3 kcc-pillar-col" data-aos="fade-up" data-aos-delay="0">
-            <div class="kcc-pillar-item">
-              <div class="kcc-pillar-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
+        <div class="kcc-pillars-header" data-aos="fade-up">
+          <div class="kcc-section-eyebrow">What We Stand For</div>
+          <h2 id="pillarsHeading" class="kcc-pillars-title">
+            The Four <span class="accent-word">Pillars</span>
+          </h2>
+        </div>
+
+        <div class="row kcc-pillars-grid">
+
+          <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+            <div class="kcc-pillar-card">
+              <div class="kcc-pillar-badge" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M22 10L12 5 2 10l10 5 10-5z"></path>
                   <path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"></path>
                   <path d="M22 10v6"></path>
                 </svg>
               </div>
-              <h2 class="kcc-pillar-title">Academic Excellence</h2>
+              <h3 class="kcc-pillar-card-title">Academic Excellence</h3>
+              <div class="kcc-pillar-divider" aria-hidden="true"></div>
+              <p class="kcc-pillar-desc">
+                Rigorous academics that challenge students to think critically and develop a genuine love for learning.
+              </p>
             </div>
           </div>
 
-          <div class="col-6 col-lg-3 kcc-pillar-col" data-aos="fade-up" data-aos-delay="60">
-            <div class="kcc-pillar-item">
-              <div class="kcc-pillar-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
+          <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="70">
+            <div class="kcc-pillar-card">
+              <div class="kcc-pillar-badge" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 3v18"></path>
                   <path d="M6 9h12"></path>
                 </svg>
               </div>
-              <h2 class="kcc-pillar-title">Faith Formation</h2>
+              <h3 class="kcc-pillar-card-title">Faith Formation</h3>
+              <div class="kcc-pillar-divider" aria-hidden="true"></div>
+              <p class="kcc-pillar-desc">
+                Deepening faith through Catholic tradition, prayer, and a personal relationship with God.
+              </p>
             </div>
           </div>
 
-          <div class="col-6 col-lg-3 kcc-pillar-col" data-aos="fade-up" data-aos-delay="120">
-            <div class="kcc-pillar-item">
-              <div class="kcc-pillar-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
+          <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="140">
+            <div class="kcc-pillar-card">
+              <div class="kcc-pillar-badge" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                   <circle cx="10" cy="7" r="3.5"></circle>
                   <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
                   <path d="M16.5 3.6a3.5 3.5 0 0 1 0 6.8"></path>
                 </svg>
               </div>
-              <h2 class="kcc-pillar-title">Community Service</h2>
+              <h3 class="kcc-pillar-card-title">Community Service</h3>
+              <div class="kcc-pillar-divider" aria-hidden="true"></div>
+              <p class="kcc-pillar-desc">
+                Reaching out to those in need, putting the Gospel into practice through hands-on service.
+              </p>
             </div>
           </div>
 
-          <div class="col-6 col-lg-3 kcc-pillar-col" data-aos="fade-up" data-aos-delay="180">
-            <div class="kcc-pillar-item">
-              <div class="kcc-pillar-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
+          <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="210">
+            <div class="kcc-pillar-card">
+              <div class="kcc-pillar-badge" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"></path>
                   <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
                 </svg>
               </div>
-              <h2 class="kcc-pillar-title">Holistic Development</h2>
+              <h3 class="kcc-pillar-card-title">Holistic Development</h3>
+              <div class="kcc-pillar-divider" aria-hidden="true"></div>
+              <p class="kcc-pillar-desc">
+                Shaping students who are not only skilled and knowledgeable but also grounded in strong values.
+              </p>
             </div>
           </div>
 
         </div>
       </div>
-    </section><!-- /Four Pillars Strip -->
+    </section><!-- /The Four Pillars Section -->
 
     <!-- 3. About KCC Banner -->
     <section id="about" class="kcc-about-banner">
+      <div class="kcc-parallax-bg kcc-parallax-about" data-parallax-speed="0.26" aria-hidden="true"></div>
       <div class="container-xl">
         <div class="row">
           <div class="col-lg-5 offset-lg-7" data-aos="fade-up">
@@ -237,7 +263,7 @@
               </div>
               <div class="kcc-program-body">
                 <div class="kcc-program-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
+                  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M2 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2z"></path>
                     <path d="M22 4h-7a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h8z"></path>
                   </svg>
@@ -265,7 +291,7 @@
               </div>
               <div class="kcc-program-body">
                 <div class="kcc-program-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
+                  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
                     <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
                     <polyline points="2 12 12 17 22 12"></polyline>
                     <polyline points="2 17 12 22 22 17"></polyline>
@@ -294,7 +320,7 @@
               </div>
               <div class="kcc-program-body">
                 <div class="kcc-program-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24">
+                  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M22 10L12 5 2 10l10 5 10-5z"></path>
                     <path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"></path>
                     <path d="M22 10v6"></path>
@@ -317,6 +343,7 @@
 
     <!-- 5. Apply for Admission Banner -->
     <section id="admissions-cta" class="kcc-admission-banner">
+      <div class="kcc-parallax-bg kcc-parallax-admission" data-parallax-speed="0.26" aria-hidden="true"></div>
       <div class="container-xl">
         <div class="row">
           <div class="col-lg-5" data-aos="fade-up">
@@ -511,6 +538,49 @@
           once: true,
           mirror: false
         });
+      }
+
+      // Smooth GPU-accelerated parallax for Hero, About KCC, and Apply for Admission
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const parallaxLayers = Array.from(document.querySelectorAll(".kcc-parallax-bg"));
+
+      if (parallaxLayers.length > 0 && !prefersReducedMotion.matches) {
+        let ticking = false;
+
+        function updateParallax() {
+          ticking = false;
+          const vh = window.innerHeight;
+          const mobileFactor = window.innerWidth < 768 ? 0.65 : 1;
+
+          for (let i = 0; i < parallaxLayers.length; i++) {
+            const bg = parallaxLayers[i];
+            const section = bg.parentElement;
+            if (!section) continue;
+
+            const rect = section.getBoundingClientRect();
+            if (rect.bottom < -120 || rect.top > vh + 120) continue;
+
+            const speed = (parseFloat(bg.dataset.parallaxSpeed) || 0.25) * mobileFactor;
+            const sectionCenter = rect.top + rect.height * 0.5;
+            const viewportCenter = vh * 0.5;
+            const maxShift = rect.height * 0.2;
+            const rawShift = (viewportCenter - sectionCenter) * speed;
+            const clampedShift = Math.max(-maxShift, Math.min(maxShift, rawShift));
+
+            bg.style.transform = "translate3d(0, " + clampedShift.toFixed(2) + "px, 0)";
+          }
+        }
+
+        function requestParallaxTick() {
+          if (!ticking) {
+            ticking = true;
+            window.requestAnimationFrame(updateParallax);
+          }
+        }
+
+        window.addEventListener("scroll", requestParallaxTick, { passive: true });
+        window.addEventListener("resize", requestParallaxTick, { passive: true });
+        updateParallax();
       }
     })();
   </script>
