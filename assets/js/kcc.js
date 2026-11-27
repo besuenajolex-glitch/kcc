@@ -70,19 +70,15 @@
   // Mobile dropdown toggle
   document.querySelectorAll(".kcc-nav .dropdown-trigger").forEach(function (trigger) {
     trigger.addEventListener("click", function (e) {
-      if (trigger.classList.contains("kcc-link-muted")) {
-        e.preventDefault();
-        return;
-      }
+      e.preventDefault();
       if (window.innerWidth < 1200) {
-        e.preventDefault();
         trigger.parentElement.classList.toggle("dropdown-open");
       }
     });
   });
 
-  // Defensive click guard on muted links
-  document.querySelectorAll(".kcc-link-muted").forEach(function (el) {
+  // Silent no-op click guard on inactive secondary-page links
+  document.querySelectorAll(".kcc-link-muted:not(.dropdown-trigger)").forEach(function (el) {
     el.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
