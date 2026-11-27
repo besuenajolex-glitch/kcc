@@ -1948,3 +1948,80 @@ a {
     left: -34.5px;
   }
 }
+
+/*--------------------------------------------------------------
+# Muted / Disabled Page Links
+--------------------------------------------------------------*/
+.kcc-link-muted {
+  cursor: not-allowed;
+  user-select: none;
+}
+
+.kcc-nav > ul > li > a.kcc-link-muted,
+.kcc-nav > ul > li > a.kcc-link-muted:hover {
+  color: var(--kcc-muted);
+  opacity: 0.55;
+  cursor: not-allowed;
+  background: transparent;
+}
+
+.kcc-nav > ul > li > a.kcc-link-muted::after {
+  transform: scaleX(0) !important;
+}
+
+.kcc-nav .dropdown.kcc-dropdown-muted:hover > ul,
+.kcc-nav .dropdown.kcc-dropdown-muted.dropdown-open > ul {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  display: none;
+}
+
+.kcc-nav .dropdown.kcc-dropdown-muted:hover > a i,
+.kcc-nav .dropdown.kcc-dropdown-muted.dropdown-open > a i {
+  transform: none;
+}
+
+.btn-kcc-white.kcc-link-muted,
+.btn-kcc-white.kcc-link-muted:hover {
+  opacity: 0.62;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--kcc-navy);
+  box-shadow: none;
+  transform: none;
+  cursor: not-allowed;
+}
+
+.btn-kcc-white.kcc-link-muted:hover i {
+  transform: none;
+  color: var(--kcc-blue);
+}
+
+.kcc-program-card.kcc-link-muted,
+.kcc-program-card.kcc-link-muted:hover {
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 8px 26px rgba(15, 36, 71, 0.06);
+  border-color: var(--kcc-border);
+}
+
+.kcc-program-card.kcc-link-muted:hover .kcc-program-media img {
+  transform: none;
+}
+
+.kcc-program-card.kcc-link-muted .kcc-program-arrow,
+.kcc-program-card.kcc-link-muted:hover .kcc-program-arrow {
+  opacity: 0.4;
+  background: #e8eef7;
+  color: var(--kcc-muted);
+  transform: none;
+}
+
+.kcc-footer-links a.kcc-link-muted,
+.kcc-footer-links a.kcc-link-muted:hover,
+.kcc-footer-bottom a.kcc-link-muted,
+.kcc-footer-bottom a.kcc-link-muted:hover {
+  color: rgba(255, 255, 255, 0.42);
+  text-decoration: none;
+  cursor: not-allowed;
+}

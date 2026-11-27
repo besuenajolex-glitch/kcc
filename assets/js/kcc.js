@@ -70,6 +70,10 @@
   // Mobile dropdown toggle
   document.querySelectorAll(".kcc-nav .dropdown-trigger").forEach(function (trigger) {
     trigger.addEventListener("click", function (e) {
+      if (trigger.classList.contains("kcc-link-muted")) {
+        e.preventDefault();
+        return;
+      }
       if (window.innerWidth < 1200) {
         e.preventDefault();
         trigger.parentElement.classList.toggle("dropdown-open");
@@ -77,8 +81,16 @@
     });
   });
 
+  // Defensive click guard on muted links
+  document.querySelectorAll(".kcc-link-muted").forEach(function (el) {
+    el.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    });
+  });
+
   // Close mobile nav on link click
-  document.querySelectorAll(".kcc-nav a:not(.dropdown-trigger)").forEach(function (link) {
+  document.querySelectorAll(".kcc-nav a:not(.dropdown-trigger):not(.kcc-link-muted)").forEach(function (link) {
     link.addEventListener("click", function () {
       if (document.body.classList.contains("mobile-nav-active")) {
         setMobileNav(false);
