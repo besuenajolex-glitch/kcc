@@ -839,10 +839,12 @@
     if (aboutSection) {
       gsap.fromTo(
         ".kcc-parallax-about",
-        { yPercent: -12, scale: 1.16 },
+        { yPercent: -12, scaleX: -1.16, scaleY: 1.16, rotation: 0 },
         {
           yPercent: 12,
-          scale: 1.02,
+          scaleX: -1.02,
+          scaleY: 1.02,
+          rotation: 0,
           ease: "none",
           scrollTrigger: { trigger: aboutSection, start: "top bottom", end: "bottom top", scrub: true }
         }
