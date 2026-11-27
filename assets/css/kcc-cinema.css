@@ -400,10 +400,10 @@ html.kcc-anim-ready:not(.kcc-reduced-motion) [data-reveal="hero-item"] {
   background-image:
     radial-gradient(ellipse 55% 65% at 14% 20%, rgba(22, 84, 211, 0.08) 0%, rgba(22, 84, 211, 0) 70%),
     radial-gradient(ellipse 40% 50% at 88% 12%, rgba(232, 194, 102, 0.14) 0%, rgba(232, 194, 102, 0) 70%);
-  min-height: min(88vh, 840px);
+  min-height: clamp(490px, calc(100vh - 136px), 610px);
   display: flex;
   align-items: flex-end;
-  padding-top: 32px;
+  padding-top: 20px;
 }
 
 .kcc-hero-canvas {
@@ -485,11 +485,19 @@ html.kcc-anim-ready:not(.kcc-reduced-motion) [data-reveal="hero-item"] {
   50% { background-position: 100% 50%; }
 }
 
+.kcc-hero-copy-col {
+  align-self: center;
+  padding-top: 24px;
+  padding-bottom: 44px;
+}
+
 .kcc-hero-media-col {
   position: relative;
+  align-self: flex-end;
 }
 
 .kcc-hero-model {
+  max-width: 560px;
   will-change: transform;
 }
 
@@ -540,25 +548,25 @@ html.kcc-anim-ready:not(.kcc-reduced-motion) [data-reveal="hero-item"] {
 }
 
 .kcc-float-chip-a {
-  top: 6%;
+  top: 4%;
   left: -8px;
 }
 
 .kcc-float-chip-b {
-  bottom: 12%;
+  bottom: 10%;
   right: 8px;
 }
 
 .kcc-float-chip-c {
-  top: 40%;
-  left: -76px;
+  top: 44%;
+  left: -74px;
 }
 
 /* Scroll Cue */
 .kcc-scroll-cue {
   position: absolute;
   left: 47%;
-  bottom: 18px;
+  bottom: 14px;
   transform: translateX(-50%);
   z-index: 5;
   display: inline-flex;
@@ -608,7 +616,13 @@ html.kcc-anim-ready:not(.kcc-reduced-motion) [data-reveal="hero-item"] {
 @media (max-width: 991px) {
   .kcc-hero-modern {
     min-height: auto;
+    padding-top: 20px;
     padding-bottom: 0;
+  }
+
+  .kcc-hero-copy-col {
+    padding-top: 8px;
+    padding-bottom: 16px;
   }
 
   .kcc-float-chip-a {
