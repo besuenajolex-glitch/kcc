@@ -6,63 +6,84 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Senior High School | Kabankalan Catholic College, Inc.</title>
   <meta name="description" content="Senior High School (Grades 11 & 12) at Kabankalan Catholic College, Inc. offering Academic Track (STEM, ABM, HUMSS, GAS) and TVL Track strands.">
-  <meta name="theme-color" content="#1a237e">
+  <meta name="theme-color" content="#1654d3">
 
+  <!-- Favicons -->
   <link href="https://kcc.edu.ph/favicon.ico" rel="icon">
   <link href="https://kcc.edu.ph/apple-touch-icon.png" rel="apple-touch-icon">
 
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:ital,wght@0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
 
+  <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/css/main.css" rel="stylesheet">
-  <link href="assets/css/kcc.css" rel="stylesheet">
+
+  <!-- KCC Modern Royal Blue Theme -->
+  <link href="assets/css/kcc-theme.css?v=20261127a" rel="stylesheet">
 </head>
 
-<body>
+<body class="kcc-page">
 
-  <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <img src="https://kcc.edu.ph/.netlify/images?w=44&q=80&url=%2Fimages%2Fkcc-logo.png" alt="Kabankalan Catholic College Seal" width="44" height="44">
-        <div class="brand-text">
-          <h1 class="sitename">Kabankalan Catholic College, Inc.</h1>
-          <span class="tagline">Catholic Education: Our Identity, Our Mission</span>
+  <!-- Header -->
+  <header id="header" class="kcc-header">
+    <div class="container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="kcc-brand">
+        <img src="https://kcc.edu.ph/.netlify/images?w=96&q=85&url=%2Fimages%2Fkcc-logo.png" alt="Kabankalan Catholic College Seal" width="46" height="46">
+        <div class="kcc-brand-text">
+          <span class="kcc-brand-title">Kabankalan Catholic College, Inc.</span>
+          <span class="kcc-brand-tagline">Catholic Education: Our Identity, Our Mission.</span>
         </div>
       </a>
 
-      <nav id="navmenu" class="navmenu">
+      <nav id="navmenu" class="kcc-nav ms-auto" aria-label="Main Navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li class="dropdown">
-            <a href="programs.html" class="active"><span>Academics</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <a href="programs.html" class="dropdown-trigger active">
+              <span>Academics</span>
+              <i class="bi bi-chevron-down"></i>
+            </a>
             <ul>
-              <li><a href="programs.html">College Programs</a></li>
-              <li><a href="senior-high.html" class="active">Senior High School</a></li>
               <li><a href="basic-education.html">Basic Education</a></li>
+              <li><a href="senior-high.html" class="active">Senior High School</a></li>
+              <li><a href="programs.html">College Programs</a></li>
             </ul>
           </li>
-          <li><a href="news.html">News</a></li>
           <li><a href="admissions.html">Admissions</a></li>
           <li><a href="campus-life.html">Campus Life</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li class="kcc-mobile-enroll-item">
+            <a class="btn-kcc-primary" href="https://kcc.wela.ph/" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-mortarboard-fill"></i>
+              <span>Enroll Now</span>
+            </a>
+          </li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="https://kcc.wela.ph/" target="_blank" rel="noopener noreferrer">Enroll Now</a>
-    </div>
-  </header>
+      <a class="btn-enroll" href="https://kcc.wela.ph/" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-mortarboard-fill"></i>
+        <span>Enroll Now</span>
+      </a>
 
-  <main class="main">
+      <button type="button" class="kcc-mobile-toggle" id="mobileNavToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="bi bi-list"></i>
+      </button>
+
+    </div>
+  </header><!-- End Header -->
+
+  <main>
 
     <!-- Banner -->
     <section class="kcc-page-banner">
-      <div class="container" data-aos="fade-up">
+      <div class="container-xl" data-aos="fade-up">
         <div class="kcc-breadcrumb">
           <a href="index.html">Home</a>
           <i class="bi bi-chevron-right small"></i>
@@ -71,15 +92,15 @@
         <h1>Senior High School</h1>
         <p class="lead mb-4">Grades 11 &amp; 12 &mdash; Charting Your Path to the Future with Catholic values, college readiness, and practical skills.</p>
         <div class="d-flex flex-wrap gap-2">
-          <a href="basic-education.html" class="btn-kcc-outline-light py-2 px-3 small">Basic Education</a>
-          <a href="programs.html" class="btn-kcc-outline-light py-2 px-3 small">College Programs</a>
+          <a href="basic-education.html" class="btn-kcc-outline-white btn-kcc-sm">Basic Education</a>
+          <a href="programs.html" class="btn-kcc-outline-white btn-kcc-sm">College Programs</a>
         </div>
       </div>
     </section>
 
     <!-- Academic Track -->
-    <section class="section py-5">
-      <div class="container py-3">
+    <section class="kcc-section">
+      <div class="container-xl">
         <div class="mb-4" data-aos="fade-up">
           <span class="kcc-eyebrow">Academic Track</span>
           <h2 class="kcc-section-heading">Academic Strands</h2>
@@ -131,8 +152,8 @@
     </section>
 
     <!-- TVL Track -->
-    <section class="section kcc-cream-bg py-5">
-      <div class="container py-3">
+    <section class="kcc-section kcc-surface-tint">
+      <div class="container-xl">
         <div class="mb-4" data-aos="fade-up">
           <span class="kcc-eyebrow">Technical-Vocational-Livelihood</span>
           <h2 class="kcc-section-heading">Technical Professional (TVL) Track</h2>
@@ -168,19 +189,19 @@
     </section>
 
     <!-- Bottom CTA -->
-    <section class="section kcc-navy-bg py-5">
-      <div class="container py-3 text-center" data-aos="fade-up">
-        <span class="kcc-eyebrow kcc-eyebrow-light">Senior High Admissions</span>
+    <section class="kcc-cta-banner">
+      <div class="container-xl text-center" data-aos="fade-up">
+        <div class="kcc-section-eyebrow kcc-eyebrow-light">Senior High Admissions</div>
         <h2 class="kcc-section-heading text-white">Find the Right Track for You</h2>
         <p class="text-white-50 mx-auto mb-4" style="max-width: 600px;">
           Our guidance and admissions team will help you choose the strand that best matches your strengths and future goals.
         </p>
         <div class="d-flex flex-wrap justify-content-center gap-3">
-          <a href="https://kcc.wela.ph/" target="_blank" rel="noopener noreferrer" class="btn-kcc-gold">
+          <a href="https://kcc.wela.ph/" target="_blank" rel="noopener noreferrer" class="btn-kcc-white">
             <span>Apply for Senior High</span>
             <i class="bi bi-arrow-right"></i>
           </a>
-          <a href="admissions.html" class="btn-kcc-outline-light">
+          <a href="admissions.html" class="btn-kcc-outline-white">
             <span>Admissions Process</span>
           </a>
         </div>
@@ -189,61 +210,91 @@
 
   </main>
 
-  <footer id="footer" class="kcc-footer">
-    <div class="container">
-      <div class="row gy-4">
-        <div class="col-lg-5">
-          <div class="d-flex align-items-center gap-3 mb-3">
-            <img src="https://kcc.edu.ph/.netlify/images?w=44&q=80&url=%2Fimages%2Fkcc-logo.png" alt="KCC Seal" width="44" height="44">
-            <div>
-              <div class="footer-brand-name">Kabankalan Catholic College</div>
-              <div class="small" style="color: var(--kcc-gold-300);">Est. 1927 &middot; Negros Occidental</div>
+  <!-- Footer -->
+  <footer id="footer" class="kcc-footer-modern">
+    <div class="kcc-footer-top">
+      <div class="container-xl">
+        <div class="row gy-4 align-items-start">
+
+          <div class="col-lg-4">
+            <div class="kcc-footer-brand">
+              <img src="https://kcc.edu.ph/.netlify/images?w=96&q=85&url=%2Fimages%2Fkcc-logo.png" alt="Kabankalan Catholic College Seal" width="52" height="52">
+              <div>
+                <div class="kcc-footer-brand-title">Kabankalan Catholic College, Inc.</div>
+                <div class="kcc-footer-brand-tagline">Catholic Education: Our Identity, Our Mission.</div>
+              </div>
             </div>
           </div>
-          <p class="mb-3">A Catholic school in Kabankalan City forming students who are grounded in faith, strong in academics, and ready to serve.</p>
-          <p class="small text-white-50 mb-0">KCC commits to provide quality and inclusive Catholic education, rooted in the Gospel and driven by innovative research and meaningful community engagements, empowering its members to become effective agents of societal transformation.</p>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="about.html">About KCC</a></li>
-            <li><a href="programs.html">College Programs</a></li>
-            <li><a href="senior-high.html">Senior High School</a></li>
-            <li><a href="basic-education.html">Basic Education</a></li>
-            <li><a href="news.html">News &amp; Updates</a></li>
-            <li><a href="admissions.html">Admissions</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="handbook.html">Handbook</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <h4>Contact Us</h4>
-          <ul class="d-grid gap-2">
-            <li><i class="bi bi-geo-alt me-2 text-warning"></i>Guanzon St., Brgy. 1, Kabankalan City, Negros Occidental</li>
-            <li><i class="bi bi-telephone me-2 text-warning"></i><a href="tel:0324712479">(032) 4712-479</a></li>
-            <li><i class="bi bi-envelope me-2 text-warning"></i><a href="mailto:kcc_1927@yahoo.com">kcc_1927@yahoo.com</a></li>
-            <li><i class="bi bi-clock me-2 text-warning"></i>8:00 AM &ndash; 12:NN | 1:00 &ndash; 5:00 PM</li>
-            <li class="pt-2">
-              <a href="https://www.facebook.com/KCCInc1927" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center gap-2">
-                <i class="bi bi-facebook fs-5 text-warning"></i>
-                <span>@KCCInc1927</span>
+
+          <div class="col-6 col-lg-2 kcc-footer-col kcc-footer-divider">
+            <h4>Quick Links</h4>
+            <ul class="kcc-footer-links">
+              <li><a href="about.html">About</a></li>
+              <li><a href="programs.html">Academics</a></li>
+              <li><a href="admissions.html">Admissions</a></li>
+              <li><a href="campus-life.html">Campus Life</a></li>
+              <li><a href="news.html">News</a></li>
+            </ul>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 kcc-footer-col kcc-footer-divider">
+            <h4>Contact Us</h4>
+            <ul class="kcc-footer-contact">
+              <li>
+                <i class="bi bi-geo-alt-fill"></i>
+                <span>Guanzon St., Brgy. 1, Kabankalan City, Negros Occidental</span>
+              </li>
+              <li>
+                <i class="bi bi-telephone-fill"></i>
+                <a href="tel:0324712479">(032) 4712-479</a>
+              </li>
+              <li>
+                <i class="bi bi-envelope-fill"></i>
+                <a href="mailto:kcc_1927@yahoo.com">kcc_1927@yahoo.com</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-6 col-lg-2 kcc-footer-col kcc-footer-divider">
+            <h4>Follow Us</h4>
+            <div class="kcc-social-list">
+              <a href="https://www.facebook.com/KCCInc1927" target="_blank" rel="noopener noreferrer" class="kcc-social-btn" aria-label="KCC Facebook">
+                <i class="bi bi-facebook"></i>
               </a>
-            </li>
-          </ul>
+              <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="kcc-social-btn" aria-label="KCC YouTube">
+                <i class="bi bi-youtube"></i>
+              </a>
+              <a href="https://www.facebook.com/KCCInc1927" target="_blank" rel="noopener noreferrer" class="kcc-social-btn" aria-label="KCC Messenger">
+                <i class="bi bi-messenger"></i>
+              </a>
+            </div>
+          </div>
+
         </div>
-      </div>
-      <div class="kcc-footer-bottom text-center">
-        &copy; 2026 Kabankalan Catholic College, Inc. All rights reserved. &middot; &ldquo;Teach Ye All Nations&rdquo; &mdash; Mt 28:19
       </div>
     </div>
-  </footer>
 
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
+    <div class="kcc-footer-bottom">
+      <div class="container-xl d-flex flex-column flex-md-row align-items-center justify-content-between gap-2">
+        <div>&copy; 2026 Kabankalan Catholic College, Inc. All Rights Reserved.</div>
+        <div class="d-flex align-items-center gap-3">
+          <a href="handbook.html">Student Handbook</a>
+          <span class="opacity-50">|</span>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
 
+  <!-- Scroll Top -->
+  <a href="#" id="scrollTopBtn" class="kcc-scroll-top" aria-label="Scroll to top">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/kcc.js"></script>
+  <script src="assets/js/kcc.js?v=20261127a"></script>
 </body>
 
 </html>

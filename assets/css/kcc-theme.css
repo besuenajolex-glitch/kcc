@@ -31,7 +31,7 @@ html {
   scroll-behavior: smooth;
 }
 
-body.kcc-home {
+body {
   font-family: var(--font-body);
   color: var(--kcc-text);
   background-color: var(--kcc-white);
@@ -204,9 +204,14 @@ a {
   color: var(--kcc-navy);
 }
 
-.kcc-nav .dropdown ul a:hover {
+.kcc-nav .dropdown ul a:hover,
+.kcc-nav .dropdown ul a.active {
   background: var(--kcc-blue-tint);
   color: var(--kcc-blue);
+}
+
+.kcc-nav .dropdown ul a.active {
+  font-weight: 600;
 }
 
 /* Header Enroll Pill Button */
@@ -487,6 +492,56 @@ a {
 }
 
 .btn-kcc-white:hover i {
+  transform: translateX(3px);
+}
+
+.btn-kcc-outline-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--kcc-white);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 13px 26px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(255, 255, 255, 0.48);
+}
+
+.btn-kcc-outline-white:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--kcc-white);
+  color: var(--kcc-white);
+  transform: translateY(-2px);
+}
+
+.btn-kcc-sm {
+  padding: 9px 18px;
+  font-size: 0.85rem;
+  gap: 7px;
+}
+
+.kcc-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--kcc-blue);
+}
+
+.kcc-text-link i {
+  transition: transform 0.2s ease;
+}
+
+.kcc-text-link:hover {
+  color: var(--kcc-blue-hover);
+}
+
+.kcc-text-link:hover i {
   transform: translateX(3px);
 }
 
@@ -1350,4 +1405,546 @@ a {
   background: var(--kcc-blue-hover);
   color: var(--kcc-white);
   transform: translateY(-2px);
+}
+
+
+/*--------------------------------------------------------------
+# Subpage Banner (Page Title)
+--------------------------------------------------------------*/
+.kcc-page-banner {
+  position: relative;
+  overflow: hidden;
+  color: var(--kcc-white);
+  padding: 64px 0 56px;
+  background:
+    radial-gradient(ellipse 65% 90% at 92% 15%, rgba(96, 165, 250, 0.28) 0%, rgba(96, 165, 250, 0) 65%),
+    linear-gradient(135deg, var(--kcc-navy-deep) 0%, var(--kcc-banner-blue) 52%, var(--kcc-blue) 100%);
+}
+
+.kcc-page-banner .kcc-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.78);
+  margin-bottom: 14px;
+}
+
+.kcc-page-banner .kcc-breadcrumb a {
+  color: #dbeafe;
+}
+
+.kcc-page-banner .kcc-breadcrumb a:hover {
+  color: var(--kcc-white);
+  text-decoration: underline;
+}
+
+.kcc-page-banner h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 4.2vw, 3.15rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--kcc-white);
+  margin-bottom: 12px;
+  line-height: 1.12;
+}
+
+.kcc-page-banner p.lead {
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 700px;
+  margin-bottom: 0;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+/*--------------------------------------------------------------
+# Inner Page Sections, Surfaces & Headings
+--------------------------------------------------------------*/
+.kcc-section {
+  background: var(--kcc-white);
+  padding: 72px 0;
+}
+
+.kcc-surface-tint {
+  background-color: #f4f9ff;
+  background-image:
+    radial-gradient(ellipse 65% 80% at 88% 85%, rgba(169, 207, 255, 0.38) 0%, rgba(169, 207, 255, 0) 70%),
+    linear-gradient(155deg, #ffffff 0%, #f1f7ff 48%, #e8f2ff 100%);
+  border-top: 1px solid var(--kcc-border);
+  border-bottom: 1px solid var(--kcc-border);
+}
+
+.kcc-cta-banner {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 60% 80% at 85% 15%, rgba(96, 165, 250, 0.22) 0%, rgba(96, 165, 250, 0) 65%),
+    linear-gradient(135deg, var(--kcc-navy-deep) 0%, var(--kcc-banner-blue) 55%, var(--kcc-blue) 100%);
+  color: var(--kcc-white);
+  padding: 72px 0;
+}
+
+.kcc-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--kcc-blue);
+  margin-bottom: 10px;
+}
+
+.kcc-eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--kcc-blue);
+}
+
+.kcc-eyebrow-light,
+.kcc-section-eyebrow.kcc-eyebrow-light {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.kcc-eyebrow-light::before,
+.kcc-section-eyebrow.kcc-eyebrow-light::before,
+.kcc-section-eyebrow.kcc-eyebrow-light::after {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.kcc-section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.2vw, 2.55rem);
+  font-weight: 800;
+  color: var(--kcc-navy);
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+
+.kcc-section-lead {
+  font-size: 1.03rem;
+  line-height: 1.65;
+  color: var(--kcc-muted);
+  max-width: 680px;
+}
+
+/*--------------------------------------------------------------
+# Inner Page Cards, Badges, Pills & Quotes
+--------------------------------------------------------------*/
+.kcc-card {
+  background: var(--kcc-white);
+  border: 1px solid #d9e6fa;
+  border-radius: 18px;
+  padding: 28px;
+  height: 100%;
+  box-shadow: 0 10px 28px rgba(22, 84, 211, 0.06);
+  transition: transform 0.26s ease, box-shadow 0.26s ease, border-color 0.26s ease;
+}
+
+.kcc-card:hover {
+  transform: translateY(-5px);
+  border-color: #b4cdf7;
+  box-shadow: 0 18px 40px rgba(22, 84, 211, 0.13);
+}
+
+.kcc-card h3,
+.kcc-card h4 {
+  font-family: var(--font-display);
+  color: var(--kcc-navy);
+  font-weight: 700;
+}
+
+.kcc-card-dark {
+  background: linear-gradient(145deg, var(--kcc-banner-blue) 0%, var(--kcc-navy-deep) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  padding: 34px 28px;
+  color: var(--kcc-white);
+  box-shadow: 0 18px 40px rgba(11, 39, 88, 0.22);
+}
+
+.kcc-card-dark h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--kcc-white);
+}
+
+.kcc-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #2573f5 0%, #1046c2 100%);
+  color: var(--kcc-white);
+  font-size: 1.35rem;
+  box-shadow: 0 10px 22px rgba(22, 84, 211, 0.28);
+  margin-bottom: 16px;
+}
+
+.kcc-pill-tag {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--kcc-blue-soft);
+  color: var(--kcc-blue);
+  border: 1px solid #c7dcff;
+  margin-bottom: 12px;
+}
+
+.kcc-pill-navy {
+  background: var(--kcc-navy);
+  color: var(--kcc-white);
+  border-color: var(--kcc-navy);
+}
+
+.kcc-icon-accent {
+  color: var(--kcc-blue);
+}
+
+.kcc-quote-inline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.42rem;
+  color: var(--kcc-navy);
+  border-left: 3.5px solid var(--kcc-blue);
+  background: var(--kcc-blue-tint);
+  padding: 14px 20px;
+  border-radius: 0 12px 12px 0;
+  margin: 20px 0 28px;
+}
+
+.kcc-hymn-card {
+  max-width: 680px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 32px 28px;
+  backdrop-filter: blur(6px);
+}
+
+.kcc-hymn-lyrics {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: #e8f1ff;
+}
+
+/*--------------------------------------------------------------
+# About Sticky Jump Nav, Timeline & Core Values
+--------------------------------------------------------------*/
+.kcc-subnav {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--kcc-border);
+  position: sticky;
+  top: 75px;
+  z-index: 90;
+  padding: 12px 0;
+  transition: top 0.25s ease;
+}
+
+.scrolled .kcc-subnav {
+  top: 67px;
+}
+
+@media (max-width: 575px) {
+  .kcc-subnav,
+  .scrolled .kcc-subnav {
+    top: 57px;
+  }
+}
+
+.kcc-subnav .nav-pills .nav-link {
+  font-family: var(--font-display);
+  color: var(--kcc-navy);
+  font-weight: 600;
+  font-size: 0.86rem;
+  border-radius: 999px;
+  padding: 7px 16px;
+  white-space: nowrap;
+}
+
+.kcc-subnav .nav-pills .nav-link:hover {
+  background: var(--kcc-blue-tint);
+  color: var(--kcc-blue);
+}
+
+.kcc-subnav .nav-pills .nav-link.active {
+  background: linear-gradient(135deg, #1b63e4 0%, #1248b8 100%);
+  color: var(--kcc-white);
+  box-shadow: 0 4px 12px rgba(22, 84, 211, 0.25);
+}
+
+.kcc-anchor-section {
+  scroll-margin-top: 148px;
+}
+
+.kcc-timeline {
+  position: relative;
+  padding-left: 34px;
+  border-left: 2.5px solid #b7cef5;
+}
+
+.kcc-timeline-item {
+  position: relative;
+  margin-bottom: 24px;
+  padding: 22px 26px;
+  background: var(--kcc-white);
+  border: 1px solid #d9e6fa;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(22, 84, 211, 0.05);
+}
+
+.kcc-timeline-item h3 {
+  font-family: var(--font-display);
+  color: var(--kcc-navy);
+  font-weight: 700;
+}
+
+.kcc-timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -42.5px;
+  top: 26px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--kcc-blue);
+  border: 3px solid var(--kcc-white);
+  box-shadow: 0 0 0 3px rgba(22, 84, 211, 0.2);
+}
+
+.kcc-timeline-year {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--kcc-blue);
+  margin-bottom: 4px;
+}
+
+.kcc-value-letter {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #2573f5 0%, #1046c2 100%);
+  color: var(--kcc-white);
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 8px 18px rgba(22, 84, 211, 0.26);
+}
+
+/*--------------------------------------------------------------
+# Admissions Step Cards
+--------------------------------------------------------------*/
+.kcc-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--kcc-blue);
+  background: var(--kcc-blue-soft);
+  border: 1px solid #c7dcff;
+  border-radius: 12px;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 16px;
+}
+
+/*--------------------------------------------------------------
+# Filter Pills & Campus Life Photo Mosaics
+--------------------------------------------------------------*/
+.kcc-filter-btn {
+  border: 1px solid var(--kcc-border);
+  background: var(--kcc-white);
+  color: var(--kcc-navy);
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.kcc-filter-btn:hover {
+  border-color: var(--kcc-blue);
+  color: var(--kcc-blue);
+  background: var(--kcc-blue-tint);
+}
+
+.kcc-filter-btn.active {
+  background: linear-gradient(135deg, #1b63e4 0%, #1248b8 100%);
+  border-color: transparent;
+  color: var(--kcc-white);
+  box-shadow: 0 6px 16px rgba(22, 84, 211, 0.25);
+}
+
+.kcc-gallery-heading {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--kcc-navy);
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.kcc-album-card {
+  background: var(--kcc-white);
+  border: 1px solid #d9e6fa;
+  border-radius: 18px;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 26px rgba(15, 36, 71, 0.06);
+  transition: box-shadow 0.26s ease, transform 0.26s ease, border-color 0.26s ease;
+}
+
+.kcc-album-card:hover {
+  transform: translateY(-4px);
+  border-color: #b4cdf7;
+  box-shadow: 0 18px 40px rgba(22, 84, 211, 0.13);
+}
+
+.kcc-mosaic {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 170px 100px;
+  gap: 4px;
+  background: #dce8fa;
+}
+
+.kcc-mosaic a {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background: var(--kcc-navy-deep);
+}
+
+.kcc-mosaic a:first-child {
+  grid-column: 1 / -1;
+}
+
+.kcc-mosaic.mosaic-1 {
+  grid-template-rows: 274px;
+}
+
+.kcc-mosaic.mosaic-3 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.kcc-mosaic.mosaic-4 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.kcc-mosaic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.kcc-mosaic a:hover img {
+  transform: scale(1.06);
+}
+
+.kcc-album-body {
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.kcc-album-body h4 {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--kcc-navy);
+  margin: 0;
+}
+
+.kcc-album-count {
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--kcc-blue);
+  background: var(--kcc-blue-soft);
+  border: 1px solid #c7dcff;
+  padding: 4px 11px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/*--------------------------------------------------------------
+# Contact Form Controls
+--------------------------------------------------------------*/
+.kcc-form .form-label {
+  font-family: var(--font-display);
+  color: var(--kcc-navy);
+}
+
+.kcc-form .form-control {
+  border: 1px solid var(--kcc-border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.94rem;
+  color: var(--kcc-navy);
+  background-color: #fbfdff;
+}
+
+.kcc-form .form-control:focus {
+  border-color: var(--kcc-blue);
+  background-color: var(--kcc-white);
+  box-shadow: 0 0 0 0.22rem rgba(22, 84, 211, 0.16);
+}
+
+@media (max-width: 767px) {
+  .kcc-page-banner {
+    padding: 44px 0 40px;
+  }
+
+  .kcc-section,
+  .kcc-cta-banner {
+    padding: 52px 0;
+  }
+
+  .kcc-card {
+    padding: 22px;
+  }
+
+  .kcc-anchor-section {
+    scroll-margin-top: 130px;
+  }
+
+  .kcc-timeline {
+    padding-left: 26px;
+  }
+
+  .kcc-timeline-item::before {
+    left: -34.5px;
+  }
 }
