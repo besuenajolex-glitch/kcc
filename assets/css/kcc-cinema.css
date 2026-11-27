@@ -1,0 +1,1351 @@
+/*--------------------------------------------------------------
+# Kabankalan Catholic College, Inc. (KCC)
+# Royal Heritage Editorial & Cinematic Motion Layer
+# Layered cleanly over assets/css/kcc-theme.css
+--------------------------------------------------------------*/
+
+:root {
+  --kcc-obsidian: #061229;
+  --kcc-midnight: #091b3d;
+  --kcc-midnight-soft: #0e2756;
+  --kcc-royal: #1654d3;
+  --kcc-royal-bright: #2a74ff;
+  --kcc-gold: #e8c266;
+  --kcc-gold-bright: #f6dc8d;
+  --kcc-gold-deep: #c89b3c;
+  --kcc-porcelain: #f5f9ff;
+  --kcc-ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/*--------------------------------------------------------------
+# Safe Animation Gating (never trap content at opacity: 0)
+--------------------------------------------------------------*/
+html.kcc-anim-ready:not(.kcc-reduced-motion) [data-reveal="fade-up"],
+html.kcc-anim-ready:not(.kcc-reduced-motion) [data-reveal="card"],
+html.kcc-anim-ready:not(.kcc-reduced-motion) [data-reveal="hero-item"] {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kcc-preloader {
+    display: none !important;
+  }
+  .kcc-marquee-track {
+    animation: none !important;
+  }
+  .kcc-cursor-dot,
+  .kcc-cursor-ring,
+  .kcc-scroll-cue {
+    display: none !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Editorial Film Grain (Dark Chapters)
+--------------------------------------------------------------*/
+.kcc-grain-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.032;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+/*--------------------------------------------------------------
+# 0. Split-Curtain Seal Preloader
+--------------------------------------------------------------*/
+.kcc-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: all;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.kcc-preloader.is-done {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.kcc-preloader-curtain {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50.5%;
+  background: radial-gradient(circle at 50% 50%, #0d2659 0%, var(--kcc-obsidian) 100%);
+  z-index: 1;
+  will-change: transform;
+}
+
+.kcc-preloader-curtain-top {
+  top: 0;
+  border-bottom: 1px solid rgba(232, 194, 102, 0.22);
+}
+
+.kcc-preloader-curtain-bottom {
+  bottom: 0;
+  border-top: 1px solid rgba(232, 194, 102, 0.22);
+}
+
+.kcc-preloader-center {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+  padding: 24px;
+}
+
+.kcc-preloader-seal-wrap {
+  position: relative;
+  width: 118px;
+  height: 118px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kcc-preloader-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.kcc-preloader-ring-track {
+  fill: none;
+  stroke: rgba(232, 194, 102, 0.16);
+  stroke-width: 2;
+}
+
+.kcc-preloader-ring-progress {
+  fill: none;
+  stroke: url(#kccGoldGradient);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 326.73;
+  stroke-dashoffset: 326.73;
+}
+
+.kcc-preloader-seal {
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 22px rgba(232, 194, 102, 0.28));
+}
+
+.kcc-preloader-kicker {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--kcc-gold-bright);
+}
+
+.kcc-preloader-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+}
+
+/*--------------------------------------------------------------
+# Global Scroll Progress Bar & Chapter Rail
+--------------------------------------------------------------*/
+.kcc-scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 1005;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--kcc-royal-bright) 0%, var(--kcc-gold) 55%, var(--kcc-gold-bright) 100%);
+  transform: scaleX(0);
+  transform-origin: left center;
+  box-shadow: 0 0 12px rgba(232, 194, 102, 0.65);
+}
+
+.kcc-chapter-rail {
+  position: fixed;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 980;
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  padding: 12px 10px;
+  border-radius: 999px;
+  background: rgba(6, 18, 41, 0.56);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 12px 32px rgba(6, 18, 41, 0.25);
+}
+
+@media (min-width: 1280px) {
+  .kcc-chapter-rail {
+    display: flex;
+  }
+}
+
+.kcc-chapter-dot {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 4px;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.25s ease;
+}
+
+.kcc-chapter-label {
+  position: absolute;
+  right: 26px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: var(--kcc-obsidian);
+  color: var(--kcc-gold-bright);
+  border: 1px solid rgba(232, 194, 102, 0.35);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(8px);
+  transition: opacity 0.22s ease, transform 0.22s var(--kcc-ease-expo);
+  box-shadow: 0 8px 20px rgba(6, 18, 41, 0.32);
+}
+
+.kcc-chapter-pip {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.38);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  transition: transform 0.28s var(--kcc-ease-expo), background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.kcc-chapter-dot:hover .kcc-chapter-label,
+.kcc-chapter-dot:focus-visible .kcc-chapter-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.kcc-chapter-dot.is-active .kcc-chapter-pip {
+  transform: scale(1.45);
+  background: var(--kcc-gold);
+  border-color: #ffffff;
+  box-shadow: 0 0 12px rgba(232, 194, 102, 0.85);
+}
+
+/*--------------------------------------------------------------
+# Fine-Pointer Custom Cursor Aura
+--------------------------------------------------------------*/
+.kcc-cursor-dot,
+.kcc-cursor-ring {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 1200px) {
+  .kcc-cursor-dot {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--kcc-gold-deep);
+    box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.9);
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0);
+    transition: opacity 0.25s ease, background-color 0.2s ease;
+  }
+
+  .kcc-cursor-ring {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(22, 84, 211, 0.35);
+    background: rgba(22, 84, 211, 0.03);
+    pointer-events: none;
+    z-index: 9997;
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0);
+    transition: width 0.28s var(--kcc-ease-expo), height 0.28s var(--kcc-ease-expo), background-color 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+  }
+
+  .kcc-cursor-ring span {
+    font-family: var(--font-display);
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #ffffff;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  body.kcc-cursor-active .kcc-cursor-dot,
+  body.kcc-cursor-active .kcc-cursor-ring {
+    opacity: 1;
+  }
+
+  .kcc-cursor-ring.is-labeled {
+    width: 74px;
+    height: 74px;
+    background: rgba(6, 18, 41, 0.86);
+    border-color: var(--kcc-gold);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 10px 26px rgba(6, 18, 41, 0.35);
+  }
+
+  .kcc-cursor-ring.is-labeled span {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .kcc-cursor-ring.is-interactive:not(.is-labeled) {
+    width: 50px;
+    height: 50px;
+    border-color: var(--kcc-gold);
+    background: rgba(232, 194, 102, 0.1);
+  }
+}
+
+/*--------------------------------------------------------------
+# Sculpted Floating Header & Magnetic Sheen Buttons
+--------------------------------------------------------------*/
+.kcc-header {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(15, 36, 71, 0.08);
+  transition: background-color 0.35s ease, box-shadow 0.35s ease, padding 0.3s ease, border-color 0.35s ease;
+}
+
+.scrolled .kcc-header {
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom-color: rgba(232, 194, 102, 0.35);
+  box-shadow: 0 12px 36px rgba(6, 18, 41, 0.11);
+}
+
+.kcc-nav > ul > li > a::after {
+  background: linear-gradient(90deg, var(--kcc-royal) 0%, var(--kcc-gold-deep) 100%);
+}
+
+/* Shimmer sweep on CTA buttons */
+.btn-enroll,
+.btn-kcc-primary,
+.btn-kcc-white {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn-enroll::before,
+.btn-kcc-primary::before,
+.btn-kcc-white::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(110deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.36) 50%, rgba(255, 255, 255, 0) 100%);
+  transform: skewX(-22deg);
+  transition: left 0.65s var(--kcc-ease-expo);
+  z-index: -1;
+}
+
+.btn-enroll:hover::before,
+.btn-kcc-primary:hover::before,
+.btn-kcc-white:hover::before {
+  left: 145%;
+}
+
+/*--------------------------------------------------------------
+# 1. Hero Stage (Porcelain-Sky Light Canvas for clean multiply blend)
+--------------------------------------------------------------*/
+.kcc-hero-modern {
+  position: relative;
+  isolation: isolate;
+  background-color: #f3f8ff;
+  background-image:
+    radial-gradient(ellipse 55% 65% at 14% 20%, rgba(22, 84, 211, 0.08) 0%, rgba(22, 84, 211, 0) 70%),
+    radial-gradient(ellipse 40% 50% at 88% 12%, rgba(232, 194, 102, 0.14) 0%, rgba(232, 194, 102, 0) 70%);
+  min-height: min(88vh, 840px);
+  display: flex;
+  align-items: flex-end;
+  padding-top: 32px;
+}
+
+.kcc-hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.kcc-hero-watermark {
+  position: absolute;
+  left: -2%;
+  bottom: -4%;
+  font-family: var(--font-serif);
+  font-size: clamp(9rem, 23vw, 22rem);
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: rgba(22, 84, 211, 0.045);
+  pointer-events: none;
+  user-select: none;
+  z-index: -1;
+  will-change: transform;
+}
+
+.kcc-hero-modern .container-xl {
+  position: relative;
+}
+
+.kcc-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 14px 7px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(22, 84, 211, 0.16);
+  box-shadow: 0 8px 20px rgba(15, 36, 71, 0.06);
+  margin-bottom: 24px;
+  color: var(--kcc-navy);
+}
+
+.kcc-hero-eyebrow::after {
+  display: none;
+}
+
+.kcc-hero-eyebrow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--kcc-gold-deep);
+  box-shadow: 0 0 0 4px rgba(232, 194, 102, 0.28);
+  flex-shrink: 0;
+}
+
+.kcc-line-mask {
+  display: block;
+  overflow: hidden;
+}
+
+.kcc-line-inner {
+  display: block;
+}
+
+.kcc-hero-title .accent-word {
+  background: linear-gradient(120deg, #1042ab 0%, #1d65f0 42%, #c89b3c 72%, #1654d3 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: kccAccentShimmer 7s ease-in-out infinite;
+  padding-right: 4px;
+}
+
+@keyframes kccAccentShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.kcc-hero-media-col {
+  position: relative;
+}
+
+.kcc-hero-model {
+  will-change: transform;
+}
+
+/* Floating Glass Heritage Chips around Hero Model */
+.kcc-float-chip {
+  position: absolute;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 14px 32px rgba(6, 18, 41, 0.14);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.kcc-float-chip-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: linear-gradient(145deg, var(--kcc-obsidian) 0%, var(--kcc-royal) 100%);
+  color: var(--kcc-gold-bright);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.kcc-float-chip-value {
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: var(--kcc-navy);
+  line-height: 1.15;
+}
+
+.kcc-float-chip-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--kcc-muted);
+  letter-spacing: 0.03em;
+}
+
+.kcc-float-chip-a {
+  top: 6%;
+  left: -8px;
+}
+
+.kcc-float-chip-b {
+  bottom: 12%;
+  right: 8px;
+}
+
+.kcc-float-chip-c {
+  top: 40%;
+  left: -76px;
+}
+
+/* Scroll Cue */
+.kcc-scroll-cue {
+  position: absolute;
+  left: 47%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--kcc-navy);
+  opacity: 0.72;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.kcc-scroll-cue:hover {
+  opacity: 1;
+  color: var(--kcc-royal);
+}
+
+.kcc-scroll-mouse {
+  width: 22px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1.8px solid rgba(15, 36, 71, 0.45);
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.kcc-scroll-wheel {
+  width: 3px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--kcc-royal);
+  animation: kccScrollWheel 1.7s ease-in-out infinite;
+}
+
+@keyframes kccScrollWheel {
+  0% { transform: translateY(0); opacity: 1; }
+  75% { transform: translateY(10px); opacity: 0.15; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+
+@media (max-width: 991px) {
+  .kcc-hero-modern {
+    min-height: auto;
+    padding-bottom: 0;
+  }
+
+  .kcc-float-chip-a {
+    top: 8%;
+    left: 6px;
+  }
+
+  .kcc-float-chip-b {
+    bottom: 10%;
+    right: 6px;
+  }
+
+  .kcc-float-chip-c,
+  .kcc-scroll-cue {
+    display: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .kcc-float-chip {
+    padding: 7px 10px;
+    gap: 8px;
+  }
+
+  .kcc-float-chip-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+
+  .kcc-float-chip-value {
+    font-size: 0.76rem;
+  }
+
+  .kcc-float-chip-label {
+    font-size: 0.62rem;
+  }
+}
+
+/*--------------------------------------------------------------
+# Kinetic Editorial Marquee Ribbons
+--------------------------------------------------------------*/
+.kcc-marquee-band {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, var(--kcc-obsidian) 0%, #0d2555 50%, var(--kcc-obsidian) 100%);
+  border-top: 1px solid rgba(232, 194, 102, 0.28);
+  border-bottom: 1px solid rgba(232, 194, 102, 0.28);
+  padding: 15px 0;
+  z-index: 4;
+}
+
+.kcc-marquee-band-gold {
+  background: linear-gradient(90deg, #0b1f48 0%, #13397f 50%, #0b1f48 100%);
+}
+
+.kcc-marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.kcc-marquee-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  padding-right: 28px;
+  white-space: nowrap;
+}
+
+.kcc-marquee-item {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.kcc-marquee-item.is-serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.98rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--kcc-gold-bright);
+}
+
+.kcc-marquee-sep {
+  color: var(--kcc-gold);
+  font-size: 0.72rem;
+}
+
+/*--------------------------------------------------------------
+# 2. About KCC Banner (Ken Burns + Royal Heritage Overlay)
+--------------------------------------------------------------*/
+.kcc-about-banner {
+  min-height: 540px;
+  padding: 90px 0;
+  background-color: var(--kcc-obsidian);
+}
+
+.kcc-parallax-about {
+  transform-origin: center center;
+}
+
+.kcc-about-banner::before {
+  background: linear-gradient(
+    95deg,
+    rgba(6, 18, 41, 0.08) 0%,
+    rgba(6, 18, 41, 0.24) 36%,
+    rgba(7, 24, 56, 0.9) 52%,
+    rgba(6, 18, 41, 0.98) 100%
+  );
+}
+
+.kcc-banner-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.kcc-about-banner .container-xl,
+.kcc-admission-banner .container-xl {
+  z-index: 3;
+}
+
+.kcc-about-stat {
+  position: relative;
+}
+
+.kcc-about-stat-value {
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 4px 18px rgba(232, 194, 102, 0.24);
+}
+
+.kcc-about-stats {
+  background: rgba(6, 18, 41, 0.68);
+  border: 1px solid rgba(232, 194, 102, 0.34);
+  box-shadow: 0 20px 44px rgba(4, 12, 30, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/*--------------------------------------------------------------
+# 3. The Four Pillars (3D Perspective Tilt + Specular Glare)
+--------------------------------------------------------------*/
+.kcc-pillars-section {
+  padding: 88px 0 98px;
+}
+
+.kcc-pillars-grid {
+  perspective: 1200px;
+}
+
+.kcc-pillar-card {
+  transform-style: preserve-3d;
+  overflow: hidden;
+  border: 1px solid rgba(22, 84, 211, 0.14);
+  box-shadow: 0 16px 38px rgba(15, 36, 71, 0.08);
+  --gx: 50%;
+  --gy: 20%;
+}
+
+/* Overflow must remain visible on badge wrapper if badge pops above top; keep glare inside a clipped inner layer */
+.kcc-pillar-card {
+  overflow: visible;
+}
+
+.kcc-pillar-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.kcc-pillar-glare::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    260px circle at var(--gx, 50%) var(--gy, 20%),
+    rgba(232, 194, 102, 0.24) 0%,
+    rgba(42, 116, 255, 0.1) 42%,
+    transparent 74%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.kcc-pillar-card:hover .kcc-pillar-glare::before {
+  opacity: 1;
+}
+
+.kcc-pillar-num {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-family: var(--font-serif);
+  font-size: 2.3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(22, 84, 211, 0.09);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.kcc-pillar-card:hover .kcc-pillar-num {
+  color: rgba(200, 155, 60, 0.28);
+  transform: translateY(-2px);
+}
+
+.kcc-pillar-badge {
+  background: linear-gradient(145deg, #2573f5 0%, #0d3a99 100%);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 14px 28px rgba(22, 84, 211, 0.35), 0 0 0 5px rgba(232, 194, 102, 0.18);
+  transition: transform 0.35s var(--kcc-ease-expo), box-shadow 0.35s ease;
+}
+
+.kcc-pillar-card:hover .kcc-pillar-badge {
+  transform: translateX(-50%) translateY(-4px) scale(1.06);
+  box-shadow: 0 18px 34px rgba(22, 84, 211, 0.42), 0 0 0 6px rgba(232, 194, 102, 0.34);
+}
+
+.kcc-pillar-divider {
+  background: linear-gradient(90deg, var(--kcc-royal) 0%, var(--kcc-gold-deep) 100%);
+  transition: width 0.35s var(--kcc-ease-expo);
+}
+
+.kcc-pillar-card:hover .kcc-pillar-divider {
+  width: 58px;
+}
+
+/*--------------------------------------------------------------
+# 4. Academic Programs Levels (Midnight Navy Showcase Chapter)
+--------------------------------------------------------------*/
+.kcc-programs-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 60% 70% at 15% 15%, rgba(28, 92, 224, 0.24) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 60% at 88% 85%, rgba(232, 194, 102, 0.12) 0%, transparent 65%),
+    linear-gradient(170deg, var(--kcc-obsidian) 0%, #0a1f47 55%, #071633 100%);
+  padding: 92px 0 100px;
+  color: #ffffff;
+}
+
+.kcc-programs-section .container-xl {
+  position: relative;
+  z-index: 2;
+}
+
+.kcc-programs-section .kcc-section-eyebrow {
+  color: var(--kcc-gold-bright);
+}
+
+.kcc-programs-section .kcc-section-eyebrow::before,
+.kcc-programs-section .kcc-section-eyebrow::after {
+  background: rgba(232, 194, 102, 0.55);
+}
+
+.kcc-programs-section .kcc-section-title {
+  color: #ffffff;
+}
+
+.kcc-programs-section .kcc-section-subtitle {
+  color: rgba(225, 236, 255, 0.78);
+}
+
+.kcc-programs-section .kcc-program-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 18px 44px rgba(4, 12, 28, 0.4);
+  color: #ffffff;
+}
+
+.kcc-programs-section .kcc-program-card:hover {
+  border-color: rgba(232, 194, 102, 0.55);
+  box-shadow: 0 24px 52px rgba(4, 12, 28, 0.55), 0 0 0 1px rgba(232, 194, 102, 0.22);
+}
+
+.kcc-programs-section .kcc-program-media {
+  background: var(--kcc-midnight);
+}
+
+.kcc-programs-section .kcc-program-media img {
+  height: 120%;
+  transform: translate3d(0, -8%, 0);
+  will-change: transform;
+}
+
+.kcc-programs-section .kcc-program-card:hover .kcc-program-media img {
+  filter: brightness(1.06) contrast(1.03);
+}
+
+.kcc-programs-section .kcc-program-icon {
+  background: rgba(232, 194, 102, 0.14);
+  border: 1px solid rgba(232, 194, 102, 0.34);
+  color: var(--kcc-gold-bright);
+}
+
+.kcc-programs-section .kcc-program-level {
+  color: var(--kcc-gold);
+}
+
+.kcc-programs-section .kcc-program-title-wrap h3 {
+  color: #ffffff;
+}
+
+.kcc-programs-section .kcc-program-desc {
+  color: rgba(225, 236, 255, 0.78);
+}
+
+.kcc-programs-section .kcc-program-tags li {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.kcc-programs-section .kcc-program-footer {
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+.kcc-programs-section .kcc-program-cta {
+  color: var(--kcc-gold-bright);
+}
+
+.kcc-programs-section .kcc-program-arrow {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--kcc-gold-bright);
+}
+
+.kcc-programs-section .kcc-program-card:hover .kcc-program-arrow {
+  background: var(--kcc-gold);
+  color: var(--kcc-obsidian);
+}
+
+/*--------------------------------------------------------------
+# 5. Programs Offered Explorer (Sticky Filter + Spotlight Cards)
+--------------------------------------------------------------*/
+.kcc-offered-section {
+  position: relative;
+  padding: 88px 0 98px;
+}
+
+.kcc-dept-filter-bar {
+  position: sticky;
+  top: 72px;
+  z-index: 40;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 44px;
+  padding: 6px 0;
+}
+
+.scrolled .kcc-dept-filter-bar {
+  top: 66px;
+}
+
+@media (max-width: 575px) {
+  .kcc-dept-filter-bar,
+  .scrolled .kcc-dept-filter-bar {
+    top: 58px;
+  }
+}
+
+.kcc-dept-filter-pills {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  max-width: 100%;
+  padding: 7px 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid #cfe0fa;
+  box-shadow: 0 12px 30px rgba(15, 36, 71, 0.1);
+}
+
+@media (max-width: 575px) {
+  .kcc-dept-filter-pills {
+    flex-wrap: wrap;
+    border-radius: 20px;
+    padding: 6px;
+    gap: 6px;
+  }
+
+  .kcc-dept-filter-btn {
+    padding: 7px 12px;
+    font-size: 0.78rem;
+  }
+}
+
+.kcc-dept-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--kcc-navy);
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.kcc-dept-filter-btn:hover {
+  background: var(--kcc-blue-tint);
+  color: var(--kcc-royal);
+}
+
+.kcc-dept-filter-btn.is-active {
+  background: linear-gradient(135deg, var(--kcc-obsidian) 0%, var(--kcc-royal) 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(22, 84, 211, 0.28);
+}
+
+.kcc-dept-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  background: rgba(22, 84, 211, 0.1);
+  color: var(--kcc-royal);
+}
+
+.kcc-dept-filter-btn.is-active .kcc-dept-count {
+  background: rgba(232, 194, 102, 0.24);
+  color: var(--kcc-gold-bright);
+}
+
+/* Cursor Spotlight Card */
+.kcc-offered-card {
+  position: relative;
+  --mx: 50%;
+  --my: 50%;
+  border: 1px solid #d5e4fb;
+}
+
+.kcc-offered-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  pointer-events: none;
+  z-index: 3;
+  background: radial-gradient(
+    280px circle at var(--mx) var(--my),
+    rgba(232, 194, 102, 0.18) 0%,
+    rgba(22, 84, 211, 0.08) 45%,
+    transparent 74%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.kcc-offered-card:hover::before {
+  opacity: 1;
+}
+
+.kcc-offered-img {
+  height: 118%;
+  transform: translate3d(0, -6%, 0);
+  will-change: transform;
+}
+
+.kcc-degree-chip {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: rgba(6, 18, 41, 0.82);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(232, 194, 102, 0.48);
+  color: var(--kcc-gold-bright);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 16px rgba(6, 18, 41, 0.28);
+}
+
+.kcc-offered-desc {
+  border-left-color: var(--kcc-gold-deep);
+  transition: border-left-color 0.25s ease, padding-left 0.25s ease;
+}
+
+.kcc-offered-card:hover .kcc-offered-desc {
+  border-left-color: var(--kcc-royal);
+}
+
+/*--------------------------------------------------------------
+# 6. Apply for Admission Climax
+--------------------------------------------------------------*/
+.kcc-admission-banner {
+  min-height: 520px;
+  padding: 88px 0;
+  background-color: var(--kcc-obsidian);
+}
+
+.kcc-admission-banner::before {
+  background: linear-gradient(
+    92deg,
+    rgba(6, 18, 41, 0.97) 0%,
+    rgba(11, 41, 94, 0.9) 44%,
+    rgba(13, 62, 134, 0.24) 68%,
+    rgba(6, 18, 41, 0.06) 100%
+  );
+}
+
+.kcc-admission-steps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 22px 0 28px;
+}
+
+@media (max-width: 575px) {
+  .kcc-admission-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kcc-admission-step-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 13px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.94);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.kcc-admission-step-pill span {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--kcc-gold-bright);
+}
+
+/*--------------------------------------------------------------
+# Footer Gold Hairline & Circular Scroll-Top Ring
+--------------------------------------------------------------*/
+.kcc-footer-modern {
+  border-top: 2px solid rgba(232, 194, 102, 0.4);
+}
+
+.kcc-scroll-top {
+  width: 50px;
+  height: 50px;
+  background: var(--kcc-obsidian);
+  border: 1px solid rgba(232, 194, 102, 0.35);
+  box-shadow: 0 10px 26px rgba(6, 18, 41, 0.42);
+}
+
+.kcc-scroll-top-ring {
+  position: absolute;
+  inset: -2px;
+  width: 54px;
+  height: 54px;
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.kcc-scroll-top-ring circle {
+  fill: none;
+  stroke: var(--kcc-gold);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 144.5;
+  stroke-dashoffset: 144.5;
+}
+
+.kcc-scroll-top:hover {
+  background: var(--kcc-royal);
+}
+
+/*--------------------------------------------------------------
+# Royal Editorial Quick-View Modal
+--------------------------------------------------------------*/
+.kcc-cinema-modal .modal-content {
+  border: 1px solid rgba(232, 194, 102, 0.32);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 28px 70px rgba(4, 12, 30, 0.45);
+}
+
+.kcc-modal-hero {
+  position: relative;
+  padding: 28px 30px 24px;
+  background:
+    radial-gradient(ellipse 70% 90% at 90% 10%, rgba(42, 116, 255, 0.32) 0%, transparent 65%),
+    linear-gradient(145deg, var(--kcc-obsidian) 0%, #0d2a60 100%);
+  color: #ffffff;
+  border-bottom: 1px solid rgba(232, 194, 102, 0.25);
+}
+
+.kcc-modal-kicker {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--kcc-gold-bright);
+  margin-bottom: 8px;
+}
+
+.kcc-modal-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  padding-right: 36px;
+  line-height: 1.2;
+}
+
+.kcc-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.kcc-modal-close:hover {
+  background: var(--kcc-gold);
+  color: var(--kcc-obsidian);
+  transform: rotate(90deg);
+}
+
+.kcc-modal-body {
+  padding: 26px 30px;
+  background: #ffffff;
+  color: var(--kcc-text);
+}
+
+.kcc-modal-banner-img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  object-position: center 22%;
+  border-radius: 14px;
+  margin-bottom: 18px;
+  border: 1px solid var(--kcc-border);
+}
+
+.kcc-modal-section-box {
+  background: var(--kcc-porcelain);
+  border: 1px solid #d7e5fb;
+  border-radius: 14px;
+  padding: 16px 18px;
+  height: 100%;
+}
+
+.kcc-modal-section-box h6 {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--kcc-royal);
+  margin-bottom: 10px;
+}
+
+.kcc-modal-pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.kcc-modal-pill-list li {
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--kcc-navy);
+  background: #ffffff;
+  border: 1px solid #cadcf8;
+  border-radius: 999px;
+  padding: 5px 12px;
+}
+
+.kcc-modal-footer {
+  padding: 16px 30px 22px;
+  background: var(--kcc-porcelain);
+  border-top: 1px solid var(--kcc-border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+@media (max-width: 575px) {
+  .kcc-modal-hero,
+  .kcc-modal-body,
+  .kcc-modal-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

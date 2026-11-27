@@ -67,11 +67,11 @@
     }
   });
 
-  // Mobile dropdown toggle
+  // Mobile dropdown toggle (desktop clicks scroll to #programs normally)
   document.querySelectorAll(".kcc-nav .dropdown-trigger").forEach(function (trigger) {
     trigger.addEventListener("click", function (e) {
-      e.preventDefault();
       if (window.innerWidth < 1200) {
+        e.preventDefault();
         trigger.parentElement.classList.toggle("dropdown-open");
       }
     });
@@ -94,8 +94,8 @@
     });
   });
 
-  // 3. Initialize AOS animations
-  if (typeof AOS !== "undefined") {
+  // 3. Initialize AOS animations (skipped if kcc-cinema handles scroll choreography)
+  if (typeof AOS !== "undefined" && document.documentElement.dataset.kccCinema !== "true") {
     AOS.init({
       duration: 600,
       easing: "ease-out-cubic",
@@ -115,7 +115,11 @@
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const parallaxLayers = Array.from(document.querySelectorAll(".kcc-parallax-bg"));
 
-  if (parallaxLayers.length > 0 && !prefersReducedMotion.matches) {
+  if (
+    parallaxLayers.length > 0 &&
+    !prefersReducedMotion.matches &&
+    document.documentElement.dataset.kccCinema !== "true"
+  ) {
     let ticking = false;
 
     function updateParallax() {
