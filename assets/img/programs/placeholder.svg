@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Program image placeholder">
+  <defs>
+    <linearGradient id="kccProgBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8f1ff"/>
+      <stop offset="55%" stop-color="#cfe2ff"/>
+      <stop offset="100%" stop-color="#b6d3ff"/>
+    </linearGradient>
+    <radialGradient id="kccProgGlow" cx="78%" cy="20%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.72"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#kccProgBg)"/>
+  <rect width="800" height="500" fill="url(#kccProgGlow)"/>
+
+  <!-- Subtle layered wave accents -->
+  <path d="M0 320 C 190 250, 390 365, 800 265 L 800 500 L 0 500 Z" fill="#a8c9fa" fill-opacity="0.28"/>
+  <path d="M0 375 C 240 315, 510 415, 800 330 L 800 500 L 0 500 Z" fill="#8bb6f6" fill-opacity="0.22"/>
+
+  <!-- Minimal academic frame accent -->
+  <g transform="translate(362, 130)" fill="none" stroke="#1654d3" stroke-opacity="0.28" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0" y="0" width="76" height="58" rx="10" fill="#ffffff" fill-opacity="0.45"/>
+    <circle cx="24" cy="21" r="6"/>
+    <path d="M8 48 L 28 30 L 44 43 L 56 33 L 68 48"/>
+  </g>
+</svg>

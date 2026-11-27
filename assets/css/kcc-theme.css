@@ -1324,19 +1324,33 @@ a {
 # 4b. Programs Offered Section
 --------------------------------------------------------------*/
 .kcc-offered-section {
-  background-color: #f4f9ff;
+  background-color: #f3f8ff;
   background-image:
-    radial-gradient(ellipse 65% 80% at 88% 85%, rgba(169, 207, 255, 0.34) 0%, rgba(169, 207, 255, 0) 70%),
-    linear-gradient(155deg, #ffffff 0%, #f5f9ff 52%, #ebf3ff 100%);
+    radial-gradient(ellipse 65% 80% at 88% 12%, rgba(22, 84, 211, 0.09) 0%, rgba(22, 84, 211, 0) 68%),
+    radial-gradient(ellipse 65% 80% at 12% 88%, rgba(169, 207, 255, 0.34) 0%, rgba(169, 207, 255, 0) 70%),
+    linear-gradient(160deg, #ffffff 0%, #f3f8ff 52%, #e8f1ff 100%);
   border-top: 1px solid var(--kcc-border);
   border-bottom: 1px solid var(--kcc-border);
-  padding: 80px 0 88px;
+  padding: 80px 0 92px;
+}
+
+.kcc-offered-title .accent-word {
+  color: var(--kcc-blue);
+  font-style: italic;
 }
 
 .kcc-offered-subtitle {
   max-width: 620px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.kcc-offered-divider {
+  width: 56px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--kcc-blue);
+  margin: 16px auto 0;
 }
 
 .kcc-dept-group + .kcc-dept-group {
@@ -1346,115 +1360,180 @@ a {
 .kcc-dept-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding-bottom: 14px;
+  gap: 14px;
   margin-bottom: 26px;
-  border-bottom: 1px solid #d5e3f8;
 }
 
-.kcc-dept-header::before {
+.kcc-dept-header::after {
   content: "";
-  width: 8px;
-  height: 8px;
-  border: 1.5px solid #c99f3c;
-  transform: rotate(45deg);
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, #bfd5f6 0%, rgba(191, 213, 246, 0.15) 100%);
+}
+
+.kcc-dept-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px 10px 4px 10px;
+  background: linear-gradient(145deg, #2472f4 0%, #1147bf 100%);
+  color: var(--kcc-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
   flex-shrink: 0;
+  box-shadow: 0 6px 14px rgba(22, 84, 211, 0.24);
 }
 
 .kcc-dept-header h3 {
-  font-family: var(--font-serif);
-  font-size: clamp(1.3rem, 2.3vw, 1.65rem);
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.1vw, 1.48rem);
+  font-weight: 800;
   color: var(--kcc-navy);
   margin: 0;
   line-height: 1.25;
 }
 
 .kcc-offered-card {
-  position: relative;
+  background: var(--kcc-white);
+  border: 1px solid #d9e6fa;
+  border-radius: 18px;
+  overflow: hidden;
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: var(--kcc-white);
-  border: 1px solid #dfe8f5;
-  border-radius: 16px;
-  padding: 24px 24px 22px 26px;
-  box-shadow: 0 8px 24px rgba(15, 36, 71, 0.05);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  overflow: hidden;
-}
-
-.kcc-offered-card::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 18px;
-  bottom: 18px;
-  width: 3.5px;
-  border-radius: 0 3px 3px 0;
-  background: linear-gradient(180deg, #e2be62 0%, #c89d3c 100%);
+  box-shadow: 0 10px 28px rgba(15, 36, 71, 0.08);
+  transition: transform 0.26s ease, box-shadow 0.26s ease, border-color 0.26s ease;
 }
 
 .kcc-offered-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 34px rgba(22, 84, 211, 0.11);
-  border-color: #b7cef5;
+  transform: translateY(-5px);
+  box-shadow: 0 18px 38px rgba(22, 84, 211, 0.14);
+  border-color: #b5cef5;
 }
 
-.kcc-offered-card-head {
+.kcc-offered-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #dbe9ff;
+}
+
+.kcc-offered-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.kcc-offered-card:hover .kcc-offered-img {
+  transform: scale(1.04);
+}
+
+.kcc-offered-banner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
-  align-items: flex-start;
-  gap: 13px;
-  margin-bottom: 14px;
+  align-items: flex-end;
+  z-index: 2;
 }
 
-.kcc-offered-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--kcc-blue-soft);
-  color: var(--kcc-navy);
+.kcc-offered-badge {
+  width: 62px;
+  min-height: 62px;
+  padding: 12px;
+  border-radius: 0 18px 0 0;
+  background: linear-gradient(145deg, #2472f4 0%, #1045bc 100%);
+  color: var(--kcc-white);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.05rem;
+  font-size: 1.45rem;
   flex-shrink: 0;
-  margin-top: 2px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 4px -2px 14px rgba(10, 34, 78, 0.25);
 }
 
-.kcc-offered-card-head h4 {
-  font-family: var(--font-serif);
-  font-size: 1.06rem;
-  font-weight: 700;
-  color: var(--kcc-navy);
-  line-height: 1.32;
-  margin: 0;
+.kcc-offered-banner-title {
   flex: 1;
   min-width: 0;
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  padding: 10px 16px 10px 14px;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 34, 78, 0.94) 0%,
+    rgba(12, 42, 94, 0.86) 72%,
+    rgba(12, 42, 94, 0.45) 100%
+  );
 }
 
-.kcc-offered-num {
-  font-family: var(--font-serif);
-  font-size: 1.65rem;
+.kcc-offered-banner-title h4 {
+  font-family: var(--font-display);
+  font-size: 0.96rem;
   font-weight: 700;
-  line-height: 1;
-  color: rgba(15, 36, 71, 0.09);
-  margin-left: auto;
-  flex-shrink: 0;
-  user-select: none;
+  color: var(--kcc-white);
+  line-height: 1.28;
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.kcc-offered-body {
+  padding: 18px 20px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .kcc-offered-desc {
-  font-size: 0.89rem;
-  line-height: 1.65;
-  color: var(--kcc-muted);
+  font-size: 0.855rem;
+  line-height: 1.6;
+  color: var(--kcc-text);
+  border-left: 3px solid #e6b83a;
+  padding-left: 14px;
   margin: 0 0 18px;
 }
 
-.kcc-offered-rule {
+.kcc-offered-actions {
   margin-top: auto;
-  height: 1px;
-  background: #e8effa;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-kcc-program {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1.5px solid #9ab9ee;
+  background: var(--kcc-white);
+  color: var(--kcc-blue);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-kcc-program i {
+  transition: transform 0.2s ease;
+}
+
+.btn-kcc-program:hover {
+  background: var(--kcc-blue);
+  border-color: var(--kcc-blue);
+  color: var(--kcc-white);
+  transform: translateY(-1px);
+}
+
+.btn-kcc-program:hover i {
+  transform: translateX(2px);
 }
 
 /*--------------------------------------------------------------
@@ -2339,8 +2418,14 @@ a {
     margin-top: 38px;
   }
 
-  .kcc-offered-card {
-    padding: 20px 18px 18px 22px;
+  .kcc-offered-badge {
+    width: 54px;
+    min-height: 54px;
+    font-size: 1.25rem;
+  }
+
+  .kcc-offered-body {
+    padding: 16px;
   }
 
   .kcc-page-banner {
